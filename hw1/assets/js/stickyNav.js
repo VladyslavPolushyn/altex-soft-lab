@@ -7,6 +7,12 @@ const headerNav = document.querySelector('.main-header');
 const main = document.querySelector('.main');
 
 window.onscroll = function() {scrollFunc(stickyTab)};
+
+window.addEventListener('resize', function(event) {
+  scrollFunc(stickyTab);
+}, true);
+
+
 window.addEventListener('scroll', event => {
 	if (pageYOffset >= 30) {
 		headerNav.classList.add('sticky');
@@ -19,10 +25,10 @@ window.addEventListener('scroll', event => {
 function scrollFunc(sticky) {
 	if (window.pageYOffset >= sticky - 65) {
     tabNav.classList.add("sticky");
-    main.style.paddingTop = '90px';
+    // main.style.paddingTop = '90px';
   } else {
     tabNav.classList.remove("sticky");
-    main.style.paddingTop = '50px';
+    // main.style.paddingTop = '50px';
   }
 }
 

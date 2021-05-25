@@ -42,6 +42,9 @@ body
 	width: 100%
 	padding: 19px 0
 
+	.desktop-menu
+		display: none
+
 	&.sticky
 		background-color: $lightGray
 
@@ -182,9 +185,10 @@ body
 		padding-top: 75px
 
 	&__tabs
+		max-width: 770px
+		margin: 0 auto
 		position: relative
 		bottom: -30px
-		background-color: #fff
 		border-radius: 5px
 		border-top: 3px solid $accentGreen
 		box-shadow: 0px 12px 24px 0px #F2F2F2
@@ -198,6 +202,7 @@ body
 			z-index: 5
 
 		nav
+			background-color: #fff
 			padding: 10px 0
 			display: flex
 			
@@ -294,7 +299,7 @@ body
 			&.acc-4::before
 				content: '4'
 
-			span
+			span.accordion-icon
 				position: relative
 				top: 40%
 				right: 10px
@@ -332,7 +337,7 @@ body
 				&::before
 						content: ''
 
-				span
+				span.accordion-icon
 					&::before
 						content: ''
 						width: 0
@@ -512,7 +517,7 @@ body
 					content: 'Q'
 					left: 0
 
-				span
+				span.accordion-icon
 					position: absolute
 					right: 0
 					width: 18px
@@ -528,7 +533,7 @@ body
 					font-size: 16px
 					padding-left: 60px
 
-					span
+					span.accordion-icon
 						background: url('../img/arrow-up.png') center/cover
 
 					&::before
@@ -567,10 +572,11 @@ body
 				display: block
 				margin: 0 auto
 				margin-top: 20px
+				border-bottom: 2px solid transparent
 
 				&:hover
 					cursor: pointer
-					border-bottom: 2px solid $accentGreen
+					border-color: $accentGreen
 
 .main-footer
 	color: $grayText
@@ -583,7 +589,7 @@ body
 			position: relative
 			margin-bottom: 15px
 
-			&::before
+			&:not(.footer-links)::before
 				position: absolute
 				content: ''
 				top: 0
@@ -591,11 +597,6 @@ body
 				width: calc(100% + 60px)
 				height: 2px
 				background-color: $accentGreen
-
-			&:first-of-type
-
-				&::before
-					content: none
 
 			a.view-map
 				color: $accentGreen
@@ -672,3 +673,259 @@ body
 
 			img
 				max-width: 105px
+
+
+@media screen and (min-width: 768px)
+
+	.hero
+
+		.container
+
+		&__tabs
+
+			&.sticky
+				left: calc(50% - 770px / 2)
+
+@media screen and (min-width: 992px)
+
+	.main-header
+
+		&__logo
+			display: flex
+			align-items: center
+
+			img
+				height: 25px
+
+		.hamburger-menu
+			display: none
+
+		.desktop-menu
+			display: flex
+
+			.menu__nav
+				display: flex
+				align-items: center
+
+			.menu__item
+				position: relative
+				color: #fff
+				font-family: Acme, sans-serif
+				font-size: 12px
+				letter-spacing: 2px
+				text-align: center
+				padding: 5px 0
+				margin-right: 20px
+
+			.menu__item:hover::after, .menu__item.active::after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: calc(50% - 20px)
+				width: 40px
+				height: 2px
+				background-color: #fff
+
+			.menu__buttons
+
+				.btn
+					color: #fff
+					border-color: #fff
+
+					&:hover
+						cursor: pointer
+						color: #fff
+						background-color: $accentGreen
+						border-color: $accentGreen
+
+					&:first-child
+						margin-right: 20px
+
+				.get-skout-btn
+					@include btnPaddingX(54px)
+
+				.log-in-btn
+					@include btnPaddingX(22.5px)
+
+	.hero
+
+		.container
+
+		&__slogan
+			padding-top: 200px
+			padding-bottom: 100px
+			font-family: actor, sans-serif
+			font-size: 110px
+			line-height: 130px
+
+		&__tabs
+			height: 80px
+			bottom: -36px
+
+			&.sticky
+				top: 80px
+				height: 80px
+				left: calc(50% - 770px / 2)
+
+			nav
+				height: 100%
+				background-color: #fff
+				padding: 10px 0
+				display: flex
+
+				.tab-item
+					display: flex
+					justify-content: center
+					align-items: center
+
+	.main
+		padding-top: 120px
+
+		.section-header
+
+			img
+				height: 40px
+
+		.accordion-block
+			margin: 45px 0 75px 0
+
+			.accordion
+				font-size: 24px
+				line-height: 36px
+				padding: 45px 0
+				padding-left: 120px
+
+				span.accordion-icon
+					width: 36px
+					height: 36px
+
+					&::before
+						height: 18px
+						top: 8px
+						left: 16px
+
+					&::after
+						width: 18px
+						left: 8px
+						top: 16px
+
+				&::before
+					font-size: 110px
+					line-height: 130px
+
+		.tips__accordion
+
+			.accordion.active
+				font-size: 42px
+				line-height: 54px
+
+			span.accordion-header
+					max-width: 360px
+
+			.accordion__content
+
+				.accordion__text
+					max-width: 365px
+					margin-left: 135px
+					font-size: 16px
+					line-height: 24px
+
+				&.show
+					display: flex
+
+				.accordion__img
+
+					img
+						width: 270px
+						margin: 50px
+
+				
+
+		.faqs__accordion
+
+			.accordion
+				padding-left: 180px
+				margin-bottom: 20px
+
+				&.active
+					font-size: 24px
+					padding-left: 180px
+
+			.accordion__content
+				font-size: 16px
+				padding: 30px 0
+
+				p
+					padding-left: 180px
+
+					&::before
+						font-size: 110px
+						line-height: 130px
+						left: 8px
+
+			.more-faqs-btn
+				margin-top: 60px
+
+	.main-footer
+
+		.footer-blocks
+			display: grid
+			grid-template-columns: repeat(4, 1fr)
+
+			.footer-links
+
+				nav
+
+					a
+						margin-bottom: 25px
+
+			.footer-contacts
+				grid-column: 2 / 5
+
+				.footer-block
+					display: flex
+					justify-content: space-between
+					padding: 10px 0 40px 0
+
+					&::before
+						left: 0
+						width: 100%
+
+					h5
+						font-size: 24px
+						line-height: 36px
+
+					p
+						font-size: 16px
+
+					a
+						font-size: 16px
+						line-height: 24px
+
+		.footer-socials
+			display: flex
+			justify-content: space-between
+			padding: 28px 0
+
+			ul
+
+				li
+					margin-right: 52px
+
+
+			&::before
+				width: 100%
+				left: 0
+
+			.footer-logo
+
+				img
+					height: auto
+					max-width: 170px
+					
+
+
+
+
+
+
