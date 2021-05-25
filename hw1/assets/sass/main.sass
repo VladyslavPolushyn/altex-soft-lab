@@ -46,7 +46,33 @@ body
 		display: none
 
 	&.sticky
-		background-color: $lightGray
+		background-color: #fff
+
+		.main-header__logo
+			background: url('../img/logo.png') center/contain
+			background-repeat: no-repeat
+
+		.desktop-menu
+
+			.menu__item
+
+				color: $grayText
+
+			.menu__item:hover::after, .menu__item.active::after
+				background-color: $grayText
+
+			.menu__buttons
+
+				.btn
+					color: $grayText
+					border-color: $grayText
+
+					&:hover
+						cursor: pointer
+						color: #fff
+						background-color: $accentGreen
+						border-color: $accentGreen
+
 
 	&__container
 		display: flex
@@ -156,11 +182,11 @@ body
 
 
 	&__logo
+		display: flex
 		z-index: 2
-
-		img
-			height: 20px
-			width: auto
+		background: url('../img/logo-white.png') center/contain
+		background-repeat: no-repeat
+		width: 110px
 
 
 .hero
@@ -434,6 +460,8 @@ body
 				user-select: none
 
 				img
+					width: 16px
+					height: 16px
 					border-radius: 50%
 					opacity: .5
 					transition: $transitionTime
@@ -824,6 +852,11 @@ body
 				font-size: 42px
 				line-height: 54px
 
+			.accordion:last-of-type.active
+				border-bottom: none
+
+
+
 			span.accordion-header
 					max-width: 360px
 
@@ -843,8 +876,6 @@ body
 					img
 						width: 270px
 						margin: 50px
-
-				
 
 		.faqs__accordion
 
@@ -884,8 +915,6 @@ body
 						&.active::before, &:hover::before
 							left: 0
 							width: 105px
-
-
 
 			.slideshow-container
 				display: flex
@@ -960,8 +989,9 @@ body
 						width: 100%
 
 					h5
-						font-size: 24px
+						font-size: 20px
 						line-height: 36px
+						flex-basis: 160px
 
 					p
 						font-size: 16px
@@ -969,6 +999,9 @@ body
 					a
 						font-size: 16px
 						line-height: 24px
+
+					.address
+						flex-basis: 220px
 
 		.footer-socials
 			display: flex
@@ -990,11 +1023,28 @@ body
 				img
 					height: auto
 					max-width: 170px
-					max-width: 500px
 
-// 
+@media screen and (min-width: 1200px)
 
+	.main-footer
 
+		.footer-blocks
 
+			.footer-contacts
 
+				.footer-block
 
+					h5
+						font-size: 24px
+						line-height: 36px
+						flex-basis: 210px
+
+					p
+						font-size: 16px
+
+					a
+						font-size: 16px
+						line-height: 24px
+
+					.address
+						flex-basis: 220px

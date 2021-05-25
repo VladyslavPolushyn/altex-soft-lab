@@ -1,13 +1,6 @@
 const sliderContainer = document.getElementsByClassName('slideshow-container')[0];
 const slideHeader = document.querySelector('.slide-item-header');
 
-// <576px
-// ≥576px
-// ≥768px
-// ≥992px
-// ≥1200px
-// ≥1400px
-
 renderSlides();
 
 const slideItems = [...document.querySelectorAll('.slideshow-container .mySlides li')];
