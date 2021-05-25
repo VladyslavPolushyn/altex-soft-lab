@@ -675,6 +675,11 @@ body
 				max-width: 105px
 
 
+// ===============================================================
+// ==========================MEDIA================================
+// ===============================================================
+
+
 @media screen and (min-width: 768px)
 
 	.hero
@@ -866,6 +871,69 @@ body
 			.more-faqs-btn
 				margin-top: 60px
 
+		.glossary__slider
+
+			.text
+
+				ul
+					width: 100%
+
+					li
+						padding-left: 140px
+
+						&.active::before, &:hover::before
+							left: 0
+							width: 105px
+
+
+
+			.slideshow-container
+				display: flex
+
+				.mySlides
+					min-width: 400px
+					height: 600px
+					padding-left: 0px
+
+				.prev, .next
+					width: max-content
+					left: 385px
+
+				.next
+					top: 20px
+
+				.prev
+					top: 52px
+
+				.prev img, .next img
+					height: 25px
+					width: 25px
+
+				.slide-item-content
+					max-width: 770px
+					padding-left: 75px
+					display: flex
+					flex-direction: column
+					align-items: center
+					min-height: 100%
+
+					h3
+						display: block
+						width: 100%
+						text-align: center
+						word-break: break-all
+						font-size: 90px
+						line-height: 120px
+						letter-spacing: 1.5px
+						padding-left: 0
+
+					.slide-item-text
+						max-width: 500px
+						word-break: break-all
+						font-size: 24px
+						line-height: 36px
+						margin-left: 50px
+
 	.main-footer
 
 		.footer-blocks
@@ -922,8 +990,9 @@ body
 				img
 					height: auto
 					max-width: 170px
-					
+					max-width: 500px
 
+// 
 
 
 

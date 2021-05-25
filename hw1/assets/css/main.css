@@ -708,6 +708,51 @@ body {
           left: 8px; }
     .main .faqs__accordion .more-faqs-btn {
       margin-top: 60px; }
+    .main .glossary__slider .text ul {
+      width: 100%; }
+      .main .glossary__slider .text ul li {
+        padding-left: 140px; }
+        .main .glossary__slider .text ul li.active::before, .main .glossary__slider .text ul li:hover::before {
+          left: 0;
+          width: 105px; }
+    .main .glossary__slider .slideshow-container {
+      display: flex; }
+      .main .glossary__slider .slideshow-container .mySlides {
+        min-width: 400px;
+        height: 600px;
+        padding-left: 0px; }
+      .main .glossary__slider .slideshow-container .prev, .main .glossary__slider .slideshow-container .next {
+        width: max-content;
+        left: 385px; }
+      .main .glossary__slider .slideshow-container .next {
+        top: 20px; }
+      .main .glossary__slider .slideshow-container .prev {
+        top: 52px; }
+      .main .glossary__slider .slideshow-container .prev img, .main .glossary__slider .slideshow-container .next img {
+        height: 25px;
+        width: 25px; }
+      .main .glossary__slider .slideshow-container .slide-item-content {
+        max-width: 770px;
+        padding-left: 75px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100%; }
+        .main .glossary__slider .slideshow-container .slide-item-content h3 {
+          display: block;
+          width: 100%;
+          text-align: center;
+          word-break: break-all;
+          font-size: 90px;
+          line-height: 120px;
+          letter-spacing: 1.5px;
+          padding-left: 0; }
+        .main .glossary__slider .slideshow-container .slide-item-content .slide-item-text {
+          max-width: 500px;
+          word-break: break-all;
+          font-size: 24px;
+          line-height: 36px;
+          margin-left: 50px; }
 
   .main-footer .footer-blocks {
     display: grid;
@@ -742,6 +787,7 @@ body {
       left: 0; }
     .main-footer .footer-socials .footer-logo img {
       height: auto;
-      max-width: 170px; } }
+      max-width: 170px;
+      max-width: 500px; } }
 
 /*# sourceMappingURL=main.css.map */

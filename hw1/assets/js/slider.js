@@ -8,95 +8,7 @@ const slideHeader = document.querySelector('.slide-item-header');
 // ≥1200px
 // ≥1400px
 
-if (window.matchMedia("(man-width: 767px)").matches) {
-	sliderContainer.insertAdjacentHTML('afterbegin', `
-		<div class="mySlides fade">
-	    <div class="text">
-	    	<ul>
-	    		<li class="active">Botnet</li>
-					<li>Breach</li>
-					<li>Cloud</li>
-					<li>DDoS</li>
-					<li>Domain</li>
-					<li>Endpoint</li>
-					<li>Exploit</li>
-					<li>Firewall</li>
-					<li>IP Address</li>
-					<li>Malware</li>
-					<li>Penetration Test</li>
-					<li>Phishing/Spearphishing</li>
-					<li>Ransomware</li>
-					<li>Session Hijacking</li>
-					<li>Social Engineering</li>
-	    	</ul>
-	    </div>
-	  </div>
-
-	  <div class="mySlides fade">
-	    <div class="text">
-	    	<ul>
-	    		<li>Software</li>
-	    		<li>SOC</li>
-	    		<li>Trojan Horse</li>
-	    		<li>VPN</li>
-	    		<li>Virus</li>
-	    		<li>Worm</li>
-	    	</ul>
-	    </div>
-	  </div>
-	`);
-} else {
-	sliderContainer.insertAdjacentHTML('afterbegin', `
-		<div class="mySlides fade">
-	    <div class="text">
-	    	<ul>
-	    		<li class="active">Botnet</li>
-					<li>Breach</li>
-					<li>Cloud</li>
-					<li>DDoS</li>
-					<li>Domain</li>
-	    	</ul>
-	    </div>
-	  </div>
-
-	  <div class="mySlides fade">
-	    <div class="text">
-	    	<ul>
-	    		<li>Endpoint</li>
-					<li>Exploit</li>
-					<li>Firewall</li>
-					<li>IP Address</li>
-					<li>Malware</li>
-	    	</ul>
-	    </div>
-	  </div>
-
-	  <div class="mySlides fade">
-	    <div class="text">
-	    	<ul>
-	    		<li>Penetration Test</li>
-					<li>Phishing/Spearphishing</li>
-					<li>Ransomware</li>
-					<li>Session Hijacking</li>
-					<li>Social Engineering</li>
-	    	</ul>
-	    </div>
-	  </div>
-
-	  <div class="mySlides fade">
-	    <div class="text">
-	    	<ul>
-	    		<li>Software</li>
-	    		<li>SOC</li>
-	    		<li>Trojan Horse</li>
-	    		<li>VPN</li>
-	    		<li>Virus</li>
-	    		<li>Worm</li>
-	    	</ul>
-	    </div>
-	  </div>
-	`);
-}
+renderSlides();
 
 const slideItems = [...document.querySelectorAll('.slideshow-container .mySlides li')];
 
@@ -139,5 +51,97 @@ function removeActiveClass(arr) {
 		item.classList.remove('active');
 	});
 
+}
+
+function renderSlides() {
+	if (window.matchMedia("(min-width: 767px)").matches) {
+		sliderContainer.insertAdjacentHTML('afterbegin', `
+			<div class="mySlides fade">
+		    <div class="text">
+		    	<ul>
+		    		<li class="active">Botnet</li>
+						<li>Breach</li>
+						<li>Cloud</li>
+						<li>DDoS</li>
+						<li>Domain</li>
+						<li>Endpoint</li>
+						<li>Exploit</li>
+						<li>Firewall</li>
+						<li>IP Address</li>
+						<li>Malware</li>
+						<li>Penetration Test</li>
+						<li>Phishing/Spearphishing</li>
+						<li>Ransomware</li>
+						<li>Session Hijacking</li>
+						<li>Social Engineering</li>
+		    	</ul>
+		    </div>
+		  </div>
+
+		  <div class="mySlides fade">
+		    <div class="text">
+		    	<ul>
+		    		<li>Software</li>
+		    		<li>SOC</li>
+		    		<li>Trojan Horse</li>
+		    		<li>VPN</li>
+		    		<li>Virus</li>
+		    		<li>Worm</li>
+		    	</ul>
+		    </div>
+		  </div>
+		`);
+	} else {
+		sliderContainer.insertAdjacentHTML('afterbegin', `
+			<div class="mySlides fade">
+		    <div class="text">
+		    	<ul>
+		    		<li class="active">Botnet</li>
+						<li>Breach</li>
+						<li>Cloud</li>
+						<li>DDoS</li>
+						<li>Domain</li>
+		    	</ul>
+		    </div>
+		  </div>
+
+		  <div class="mySlides fade">
+		    <div class="text">
+		    	<ul>
+		    		<li>Endpoint</li>
+						<li>Exploit</li>
+						<li>Firewall</li>
+						<li>IP Address</li>
+						<li>Malware</li>
+		    	</ul>
+		    </div>
+		  </div>
+
+		  <div class="mySlides fade">
+		    <div class="text">
+		    	<ul>
+		    		<li>Penetration Test</li>
+						<li>Phishing/Spearphishing</li>
+						<li>Ransomware</li>
+						<li>Session Hijacking</li>
+						<li>Social Engineering</li>
+		    	</ul>
+		    </div>
+		  </div>
+
+		  <div class="mySlides fade">
+		    <div class="text">
+		    	<ul>
+		    		<li>Software</li>
+		    		<li>SOC</li>
+		    		<li>Trojan Horse</li>
+		    		<li>VPN</li>
+		    		<li>Virus</li>
+		    		<li>Worm</li>
+		    	</ul>
+		    </div>
+		  </div>
+		`);
+	}
 }
 
