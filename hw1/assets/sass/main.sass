@@ -48,6 +48,17 @@ body
 	&.sticky
 		background-color: #fff
 
+		.hamburger-menu
+
+			.menu__btn
+
+				span
+					background-color: $grayText
+
+					&::before, &::after
+						background-color: $grayText
+
+
 		.main-header__logo
 			background: url('../img/logo.png') center/contain
 			background-repeat: no-repeat
@@ -115,7 +126,7 @@ body
 			justify-content: space-between
 			position: fixed
 			visibility: hidden
-			top: 65px
+			top: 62px
 			right: -100%
 			width: 100%
 			height: calc(100% - 65px)
