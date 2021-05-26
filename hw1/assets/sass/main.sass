@@ -16,13 +16,13 @@ li
 
 a, a:hover, a:active, a:visited
 	text-decoration: none
-	color: $mainTextColor
+	color: $main-text-color
 
 body
 	font-family: aclonica, sans-serif
 	font-size: 13px
 	line-height: 24px
-	color: $mainTextColor
+	color: $main-text-color
 
 .container
 	max-width: 1170px
@@ -32,8 +32,8 @@ body
 .btn
 	@include btn
 
-.btn-outline
-	@include btnOutline
+.btn-transparent
+	@include btnTransparent
 
 .main-header
 	position: fixed
@@ -41,6 +41,9 @@ body
 	top: 0
 	width: 100%
 	padding: 19px 0
+
+	.menu__item
+		text-transform: uppercase
 
 	.desktop-menu
 		display: none
@@ -53,13 +56,14 @@ body
 			.menu__btn
 
 				span
-					background-color: $grayText
+					background-color: $gray-text-color
 
 					&::before, &::after
-						background-color: $grayText
+						background-color: $gray-text-color
 
 
 		.main-header__logo
+			display: block
 			background: url('../img/logo.png') center/contain
 			background-repeat: no-repeat
 
@@ -67,22 +71,22 @@ body
 
 			.menu__item
 
-				color: $grayText
+				color: $gray-text-color
 
 			.menu__item:hover::after, .menu__item.active::after
-				background-color: $grayText
+				background-color: $gray-text-color
 
 			.menu__buttons
 
 				.btn
-					color: $grayText
-					border-color: $grayText
+					color: $gray-text-color
+					border-color: $gray-text-color
 
 					&:hover
 						cursor: pointer
 						color: #fff
-						background-color: $accentGreen
-						border-color: $accentGreen
+						background-color: $accent-green-color
+						border-color: $accent-green-color
 
 
 	&__container
@@ -140,7 +144,7 @@ body
 			.menu__item
 				position: relative
 				display: block
-				color: $accentGreen
+				color: $accent-green-color
 				font-family: Acme, sans-serif
 				font-size: 12px
 				letter-spacing: 2px
@@ -155,7 +159,7 @@ body
 				left: calc(50% - 20px)
 				width: 40px
 				height: 2px
-				background-color: $accentGreen
+				background-color: $accent-green-color
 
 			.menu__buttons
 
@@ -168,7 +172,7 @@ body
 					&:hover
 						cursor: pointer
 						color: #fff
-						background-color: $accentGreen
+						background-color: $accent-green-color
 
 				.get-skout-btn
 					@include btnPaddingX(54px)
@@ -227,7 +231,7 @@ body
 		position: relative
 		bottom: -30px
 		border-radius: 5px
-		border-top: 3px solid $accentGreen
+		border-top: 3px solid $accent-green-color
 		box-shadow: 0px 12px 24px 0px #F2F2F2
 		overflow: hidden
 
@@ -235,30 +239,38 @@ body
 			position: fixed
 			top: 65px
 			width: calc(100% - 60px)
-			height: 43px
 			z-index: 5
 
 		nav
 			background-color: #fff
-			padding: 10px 0
-			display: flex
+
+			ul
+				width: 100%
+				display: flex
 			
-		.tab-item
-			flex-grow: 1
-			text-align: center
-			font-family: acme, sans-serif
-			display: block
-			font-size: 12px
-			text-transform: uppercase
-			color: $grayText
-			line-height: 20px
-			border-right: 2px solid $lightGray
+				li
+					flex-grow: 1
+					text-align: center
+					font-family: acme, sans-serif
+					font-size: 12px
+					text-transform: uppercase
+					line-height: 20px
+					border-right: 2px solid $light-gray-color
+					padding: 15px 0
 
-			&:last-child
-				border: none
+					.tab-item
+						color: $gray-text-color
+						width: 100%
+						height: 100%
+						display: flex
+						align-items: center
+						justify-content: center
 
-			&:hover, &.active
-				color: $accentGreen
+						&:hover, &.active
+							color: $accent-green-color
+
+					&:last-child
+						border: none
 
 .main
 	padding-top: 50px
@@ -271,7 +283,7 @@ body
 			content: ''
 			position: absolute
 			width: 100%
-			background-color: $midGray
+			background-color: $mid-gray-color
 			height: 1.5px
 			border-radius: 5px
 			top: 0
@@ -289,27 +301,27 @@ body
 			justify-content: space-between
 			align-items: center
 			position: relative
-			color: $mainTextColor
+			color: $main-text-color
 			background-color: #fff
 			font-family: aclonica, sans-serif
 			line-height: 24px
 			font-size: 16px
 			cursor: pointer
 			border: none
-			border-top: 1.5px solid $accentGreen
+			border-top: 1.5px solid $accent-green-color
 			width: 100%
 			text-align: left
 			outline: none
 			transition: 0.4s
 			padding: 15px 0
 			padding-left: 60px
-			transition: $transitionTime
+			transition: $transition-time
 
 			&:hover
-				background-color: $lightBlue
+				background-color: $light-blue-color
 
 			&:last-of-type
-				border-bottom: 1.5px solid $accentGreen
+				border-bottom: 1.5px solid $accent-green-color
 
 			&::before
 				height: 100%
@@ -322,7 +334,7 @@ body
 				font-size: 40px
 				line-height: 48px
 				letter-spacing: 2px
-				color: $lightGray
+				color: $light-gray-color
 
 			&.acc-1::before
 				content: '1'
@@ -343,7 +355,7 @@ body
 				display: inline-block
 				width: 14px
 				height: 14px
-				border: 1px solid $accentGreen
+				border: 1px solid $accent-green-color
 				box-shadow: 0px 3px 6px 0px rgba(127, 127, 127, 0.3)
 				border-radius: 50%
 
@@ -354,7 +366,7 @@ body
 					content: ''
 					width: 2px
 					height: 8px
-					background-color: $accentGreen
+					background-color: $accent-green-color
 					border-radius: 5px
 
 				&::after
@@ -364,7 +376,7 @@ body
 					content: ''
 					width: 8px
 					height: 2px
-					background-color: $accentGreen
+					background-color: $accent-green-color
 					border-radius: 5px
 
 			&.active
@@ -403,7 +415,7 @@ body
 
 			&__footer
 				position: relative
-				color: $grayText
+				color: $gray-text-color
 				font-size: 12px
 				padding-left: 40px
 
@@ -460,7 +472,7 @@ body
 						content: ''
 						width: 2px
 						height: 65%
-						background-color: $accentGreen
+						background-color: $accent-green-color
 
 			.prev, .next 
 				cursor: pointer
@@ -475,17 +487,18 @@ body
 					height: 16px
 					border-radius: 50%
 					opacity: .5
-					transition: $transitionTime
+					transition: $transition-time
 
 			.prev
-				top: 64px 
+				top: 64px
+				transform: rotate(180deg)
 
 			.prev:hover img, .next:hover img
 				opacity: 1
 				box-shadow: 0px 1px 3px rgba(127, 127, 127, 0.2)
 
 			.text 
-				color: $grayText
+				color: $gray-text-color
 				font-size: 16px
 				line-height: 32px
 				width: 100%
@@ -507,7 +520,7 @@ body
 								width: 30px
 								height: 2px
 								border-radius: 2px
-								background-color: $accentGreen
+								background-color: $accent-green-color
 
 						&.active
 
@@ -519,14 +532,14 @@ body
 								width: 30px
 								height: 2px
 								border-radius: 2px
-								background-color: $accentGreen
+								background-color: $accent-green-color
 
 
 			.fade 
 				-webkit-animation-name: fade
-				-webkit-animation-duration: $transitionTime
+				-webkit-animation-duration: $transition-time
 				animation-name: fade
-				animation-duration: $transitionTime
+				animation-duration: $transition-time
 
 			@-webkit-keyframes fade 
 				from
@@ -601,13 +614,14 @@ body
 							color: #E5E5E5
 
 			.more-faqs-btn
+				text-transform: uppercase
 				font-family: acme, sans-serif
 				font-size: 12px
 				letter-spacing: 2px
 				background-color: transparent
 				border: none
 				outline: none
-				color: $accentGreen
+				color: $accent-green-color
 				display: block
 				margin: 0 auto
 				margin-top: 20px
@@ -615,11 +629,11 @@ body
 
 				&:hover
 					cursor: pointer
-					border-color: $accentGreen
+					border-color: $accent-green-color
 
 .main-footer
-	color: $grayText
-	background-color: $footerBg
+	color: $gray-text-color
+	background-color: $footer-bg-color
 
 	.footer-blocks
 		padding: 25px 0
@@ -635,17 +649,17 @@ body
 				left: -30px
 				width: calc(100% + 60px)
 				height: 2px
-				background-color: $accentGreen
+				background-color: $accent-green-color
 
 			a.view-map
-				color: $accentGreen
+				color: $accent-green-color
 				font-family: aclonica, sans-serif
 				font-size: 12px
 				line-height: 20px
 				letter-spacing: 0px
 
 				&:hover
-					color: $grayText
+					color: $gray-text-color
 
 			p
 				font-family: aclonica, sans-serif
@@ -678,7 +692,7 @@ body
 				flex-direction: column
 
 				a
-					color: $grayText
+					color: $gray-text-color
 					font-family: acme, sans-serif
 					font-size: 12px
 					line-height: 24px
@@ -688,7 +702,7 @@ body
 					margin-bottom: 10px
 
 					&:hover
-						color: $accentGreen
+						color: $accent-green-color
 
 	.footer-socials
 		padding-top: 20px
@@ -701,7 +715,7 @@ body
 			position: absolute
 			top: 0
 			left: -30px
-			background-color: $midGray
+			background-color: $mid-gray-color
 
 		ul
 			display: flex
@@ -748,8 +762,11 @@ body
 			display: flex
 
 			.menu__nav
-				display: flex
-				align-items: center
+
+				ul
+					height: 100%
+					display: flex
+					align-items: center
 
 			.menu__item
 				position: relative
@@ -779,8 +796,8 @@ body
 					&:hover
 						cursor: pointer
 						color: #fff
-						background-color: $accentGreen
-						border-color: $accentGreen
+						background-color: $accent-green-color
+						border-color: $accent-green-color
 
 					&:first-child
 						margin-right: 20px
@@ -814,13 +831,15 @@ body
 			nav
 				height: 100%
 				background-color: #fff
-				padding: 10px 0
+				// padding: 10px 0
 				display: flex
 
-				.tab-item
-					display: flex
-					justify-content: center
-					align-items: center
+				ul
+
+					li
+						display: flex
+						justify-content: center
+						align-items: center
 
 	.main
 		padding-top: 120px

@@ -10,7 +10,7 @@
 	
 	<header class="main-header" id="mainHeader">
 		<div class="container main-header__container">
-			<div class="main-header__logo"></div>
+			<a href="#" class="main-header__logo"></a>
 			<div class="main-header__nav">
 				<div class="hamburger-menu">
 				  <input id="menu__toggle" type="checkbox" />
@@ -19,31 +19,35 @@
 				  </label>
 				  <div class="menu__box">
 				  	<nav class="menu__nav" id="mobileMenu">
-					    <a class="menu__item" href="#">WHY SKOUT</a>
-					    <a class="menu__item" href="#">PRODUCTS</a>
-					    <a class="menu__item" href="#">PARTNERS</a>
-					    <a class="menu__item" href="#">COMPANY</a>
-					    <a class="menu__item active" href="#">TIPS & TOOLS</a>
-					    <a class="menu__item" href="#">BLOG</a>
+				  		<ul>
+				  			<li><a class="menu__item" href="#">why skout</a></li>
+						    <li><a class="menu__item" href="#">products</a></li>
+						    <li><a class="menu__item" href="#">partners</a></li>
+						    <li><a class="menu__item" href="#">company</a></li>
+						    <li><a class="menu__item active" href="#">tips & tools</a></li>
+						    <li><a class="menu__item" href="#">blog</a></li>
+				  		</ul>
 					  </nav>
 					  <div class="menu__buttons">
-					  	<button class="btn btn-outline get-skout-btn">get skout</button>
-					  	<button class="btn btn-outline log-in-btn">log in</button>
+					  	<button class="btn btn-transparent get-skout-btn">get skout</button>
+					  	<button class="btn btn-transparent log-in-btn">log in</button>
 					  </div>
 				  </div>
 				</div>
 				<div class="desktop-menu">
 					<nav class="menu__nav" id="desktopMenu">
-					    <a class="menu__item" href="#">WHY SKOUT</a>
-					    <a class="menu__item" href="#">PRODUCTS</a>
-					    <a class="menu__item" href="#">PARTNERS</a>
-					    <a class="menu__item" href="#">COMPANY</a>
-					    <a class="menu__item active" href="#">TIPS & TOOLS</a>
-					    <a class="menu__item" href="#">BLOG</a>
+					    <ul>
+				  			<li><a class="menu__item" href="#">why skout</a></li>
+						    <li><a class="menu__item" href="#">products</a></li>
+						    <li><a class="menu__item" href="#">partners</a></li>
+						    <li><a class="menu__item" href="#">company</a></li>
+						    <li><a class="menu__item active" href="#">tips & tools</a></li>
+						    <li><a class="menu__item" href="#">blog</a></li>
+				  		</ul>
 					  </nav>
 					  <div class="menu__buttons">
-					  	<button class="btn btn-outline get-skout-btn">get skout</button>
-					  	<button class="btn btn-outline log-in-btn">log in</button>
+					  	<button class="btn btn-transparent get-skout-btn">get skout</button>
+					  	<button class="btn btn-transparent log-in-btn">log in</button>
 					  </div>
 				</div>
 			</div>
@@ -57,9 +61,11 @@
 			</h1>
 			<div class="hero__tabs" id="heroTabs">
 				<nav>
-					<a href="#tips" class="tab-item">tips</a>
-					<a href="#glossary" class="tab-item">glossary</a>
-					<a href="#faqs" class="tab-item">faqs</a>
+					<ul>
+						<li><a href="#tips" class="tab-item">tips</a></li>
+						<li><a href="#glossary" class="tab-item">glossary</a></li>
+						<li><a href="#faqs" class="tab-item">faqs</a></li>
+					</ul>
 				</nav>
 			</div>
 		</div>
@@ -163,7 +169,7 @@
 				  	<img src="assets/img/arrow-right.png" alt="arrow right">
 				  </a>	
 				  <a class="prev" onclick="plusSlides(-1)">
-				  	<img src="assets/img/arrow-left.png" alt="arrow left">
+				  	<img src="assets/img/arrow-right.png" alt="arrow left">
 				  </a>
 
 				  <div class="slide-item-content">
@@ -224,7 +230,7 @@
 					</div>
 
 					<button class="more-faqs-btn">
-						MORE QUESTIONS
+						more questions
 					</button>
 
 				</div>
