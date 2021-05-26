@@ -1,10 +1,12 @@
 const tabLinks = document.querySelectorAll('.hero__tabs a');
-const tabNav = document.querySelector('.hero__tabs');
+const tabNav = document.getElementById('heroTabs');
 const stickyTab = tabNav.offsetTop;
 
-const headerNav = document.querySelector('.main-header');
-
+const headerNav = document.getElementById('mainHeader');
 const main = document.querySelector('.main');
+
+const headerOffsetNumber = 30;
+const headerHeight = 75;
 
 window.onscroll = function() {scrollFunc(stickyTab)};
 
@@ -14,7 +16,7 @@ window.addEventListener('resize', function(event) {
 
 
 window.addEventListener('scroll', event => {
-	if (pageYOffset >= 30) {
+	if (pageYOffset >= headerOffsetNumber) {
 		headerNav.classList.add('sticky');
 	} else {
 		headerNav.classList.remove('sticky');
@@ -23,7 +25,7 @@ window.addEventListener('scroll', event => {
 
 
 function scrollFunc(sticky) {
-	if (window.pageYOffset >= sticky - 65) {
+	if (window.pageYOffset >= sticky - headerHeight) {
     tabNav.classList.add("sticky");
     // main.style.paddingTop = '90px';
   } else {

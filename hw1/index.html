@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<header class="main-header">
+	<header class="main-header" id="mainHeader">
 		<div class="container main-header__container">
 			<div class="main-header__logo"></div>
 			<div class="main-header__nav">
@@ -18,7 +18,7 @@
 				    <span></span>
 				  </label>
 				  <div class="menu__box">
-				  	<nav class="menu__nav">
+				  	<nav class="menu__nav" id="mobileMenu">
 					    <a class="menu__item" href="#">WHY SKOUT</a>
 					    <a class="menu__item" href="#">PRODUCTS</a>
 					    <a class="menu__item" href="#">PARTNERS</a>
@@ -33,7 +33,7 @@
 				  </div>
 				</div>
 				<div class="desktop-menu">
-					<nav class="menu__nav">
+					<nav class="menu__nav" id="desktopMenu">
 					    <a class="menu__item" href="#">WHY SKOUT</a>
 					    <a class="menu__item" href="#">PRODUCTS</a>
 					    <a class="menu__item" href="#">PARTNERS</a>
@@ -55,7 +55,7 @@
 			<h1 class="hero__slogan">
 				Tips & Tools
 			</h1>
-			<div class="hero__tabs">
+			<div class="hero__tabs" id="heroTabs">
 				<nav>
 					<a href="#tips" class="tab-item">tips</a>
 					<a href="#glossary" class="tab-item">glossary</a>
@@ -167,7 +167,7 @@
 				  </a>
 
 				  <div class="slide-item-content">
-				  	<h3 class="slide-item-header">Botnet</h3>
+				  	<h2 class="slide-item-header">Botnet</h2>
 				  	<p class="slide-item-text">
 				  		Malicious software that blocks access to a system until a ransom is paid.
 				  	</p>
@@ -252,7 +252,7 @@
 
 				<div class="footer-contacts">
 					<div class="footer-block block-1">
-						<h5>New York</h5>
+						<h3 class="city-title">New York</h3 class="city-title">
 						<p>
 							<span class="phone-number">+1 631-203-6600</span>
 						</p>
@@ -263,7 +263,7 @@
 						<a href="#" class="view-map">View map</a>
 					</div>
 					<div class="footer-block block-2">
-						<h5>Corporate <br>Headquarters</h5>
+						<h3 class="city-title">Corporate <br>Headquarters</h3 class="city-title">
 						<p>
 							<span class="phone-number">+1 631-203-6600</span>
 						</p>
@@ -274,7 +274,7 @@
 						<a href="#" class="view-map">View map</a>
 					</div>
 					<div class="footer-block block-3">
-						<h5>EMEA</h5>
+						<h3 class="city-title">EMEA</h3 class="city-title">
 						<p>
 							<span class="phone-number">+353-1-6600800</span>
 						</p>
@@ -318,6 +318,7 @@
 		</div>
 	</footer>
 
+	<script src="assets/js/mainMenu.js"></script>
 	<script src="assets/js/stickyNav.js"></script>
 	<script src="assets/js/accordion.js"></script>
 	<script src="assets/js/slider.js"></script>

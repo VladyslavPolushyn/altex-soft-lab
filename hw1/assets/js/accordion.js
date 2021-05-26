@@ -1,7 +1,7 @@
-const tipsAcc = [...document.querySelectorAll(".tips__accordion .accordion")];
+const tipsAcc = [...document.querySelectorAll('.tips__accordion .accordion')];
 const tipsAccContent = [...document.querySelectorAll('.tips__accordion .accordion__content')];
 
-const faqsAcc = [...document.querySelectorAll(".faqs__accordion .accordion")];
+const faqsAcc = [...document.querySelectorAll('.faqs__accordion .accordion')];
 const faqsAccContent = [...document.querySelectorAll('.faqs__accordion .accordion__content')];
 
 
@@ -14,8 +14,8 @@ function accordionFunc(acc, accContent) {
             setClass(accContent, 'show', 'remove');
             
             if (setClasses) {
-                this.classList.toggle("active");
-                this.nextElementSibling.classList.toggle("show");
+                this.classList.toggle('active');
+                this.nextElementSibling.classList.toggle('show');
             }
         }
     }

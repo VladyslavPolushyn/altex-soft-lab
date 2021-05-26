@@ -26,15 +26,15 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  const slides = document.getElementsByClassName("mySlides");
+  const slides = document.getElementsByClassName('mySlides');
 
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+      slides[i].style.display = 'none';
   }
 
-  slides[slideIndex-1].style.display = "block";
+  slides[slideIndex-1].style.display = 'block';
 
 }
 
@@ -47,7 +47,8 @@ function removeActiveClass(arr) {
 }
 
 function renderSlides() {
-	if (window.matchMedia("(min-width: 767px)").matches) {
+	// There is a breakpoint for large devices and it takes from Bootstrap Grid
+	if (window.matchMedia('(min-width: 992px)').matches) {
 		sliderContainer.insertAdjacentHTML('afterbegin', `
 			<div class="mySlides fade">
 		    <div class="text">
