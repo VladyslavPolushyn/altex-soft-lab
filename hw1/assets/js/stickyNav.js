@@ -6,7 +6,7 @@ const headerNav = document.getElementById('mainHeader');
 const main = document.querySelector('.main');
 
 const headerOffsetNumber = 30;
-const headerHeight = 75;
+const headerHeight = 78;
 
 window.onscroll = function() {scrollFunc(stickyTab)};
 
@@ -27,10 +27,10 @@ window.addEventListener('scroll', event => {
 function scrollFunc(sticky) {
 	if (window.pageYOffset >= sticky - headerHeight) {
     tabNav.classList.add("sticky");
-    // main.style.paddingTop = '90px';
+    main.style.paddingTop = '90px';
   } else {
     tabNav.classList.remove("sticky");
-    // main.style.paddingTop = '50px';
+    main.style.paddingTop = '50px';
   }
 }
 
