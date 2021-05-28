@@ -1,6 +1,6 @@
 @import "fonts"
 @import "vars"
-@import "elements"
+@import "mixins"
 
 *
 	padding: 0
@@ -49,7 +49,7 @@ body
 		display: none
 
 	&.sticky
-		background-color: #fff
+		background-color: $white-color
 
 		.hamburger-menu
 
@@ -84,7 +84,7 @@ body
 
 					&:hover
 						cursor: pointer
-						color: #fff
+						color: $white-color
 						background-color: $accent-green-color
 						border-color: $accent-green-color
 
@@ -113,7 +113,7 @@ body
 			position: absolute
 			width: 100%
 			height: 2px
-			background-color: #fff
+			background-color: $white-color
 
 		.menu__btn > span::before
 			content: ''
@@ -138,7 +138,7 @@ body
 			padding: 40px 0
 			list-style: none
 			text-align: center
-			background-color: #fff
+			background-color: $white-color
 			box-shadow: 1px 0px 6px rgba(0, 0, 0, .2)
 
 			.menu__item
@@ -156,7 +156,8 @@ body
 				content: ''
 				position: absolute
 				bottom: 0
-				left: calc(50% - 20px)
+				left: 50%
+				transform: translate(-50%, 0)
 				width: 40px
 				height: 2px
 				background-color: $accent-green-color
@@ -171,14 +172,14 @@ body
 
 					&:hover
 						cursor: pointer
-						color: #fff
+						color: $white-color
 						background-color: $accent-green-color
 
 				.get-skout-btn
 					@include btnPaddingX(54px)
 
 				.log-in-btn
-					@include btnPaddingX(22.5px)
+					@include btnPaddingX(22px)
 
 		#menu__toggle:checked ~ .menu__btn > span
 			transform: rotate(45deg)
@@ -198,15 +199,15 @@ body
 
 	&__logo
 		display: flex
-		z-index: 2
+		width: 110px
 		background: url('../img/logo-white.png') center/contain
 		background-repeat: no-repeat
-		width: 110px
+		z-index: 2
 
 
 .hero
 	position: relative
-	color: #fff
+	color: $white-color
 	background: #11C0E6
 	background: -webkit-linear-gradient(60deg, #11C0E6 20%, #01F86E 95%)
 	background: -moz-linear-gradient(60deg, #11C0E6 20%, #01F86E 95%)
@@ -229,7 +230,6 @@ body
 		max-width: 770px
 		margin: 0 auto
 		position: relative
-		bottom: -30px
 		border-radius: 5px
 		border-top: 3px solid $accent-green-color
 		box-shadow: 0px 12px 24px 0px #F2F2F2
@@ -242,7 +242,7 @@ body
 			z-index: 5
 
 		nav
-			background-color: #fff
+			background-color: $white-color
 
 			ul
 				width: 100%
@@ -284,7 +284,7 @@ body
 			position: absolute
 			width: 100%
 			background-color: $mid-gray-color
-			height: 1.5px
+			height: 2px
 			border-radius: 5px
 			top: 0
 			left: 0
@@ -296,19 +296,22 @@ body
 	.accordion-block
 		margin: 20px 0
 
+		ul li:last-of-type .accordion
+			border-bottom: 1px solid $accent-green-color
+
 		.accordion
 			display: flex
 			justify-content: space-between
 			align-items: center
 			position: relative
 			color: $main-text-color
-			background-color: #fff
+			background-color: $white-color
 			font-family: aclonica, sans-serif
 			line-height: 24px
 			font-size: 16px
 			cursor: pointer
 			border: none
-			border-top: 1.5px solid $accent-green-color
+			border-top: 1px solid $accent-green-color
 			width: 100%
 			text-align: left
 			outline: none
@@ -318,35 +321,20 @@ body
 			transition: $transition-time
 
 			&:hover
-				background-color: $light-blue-color
+				background-color: $accent-green-color
 
-			&:last-of-type
-				border-bottom: 1.5px solid $accent-green-color
-
-			&::before
+			span.acc-num
+				position: absolute
 				height: 100%
 				display: flex
 				align-items: center
-				position: absolute
 				left: 15px
 				top: 0
 				font-family: actor, sans-serif
 				font-size: 40px
 				line-height: 48px
 				letter-spacing: 2px
-				color: $light-gray-color
-
-			&.acc-1::before
-				content: '1'
-
-			&.acc-2::before
-				content: '2'
-
-			&.acc-3::before
-				content: '3'
-
-			&.acc-4::before
-				content: '4'
+				color: #E5E5E5
 
 			span.accordion-icon
 				position: relative
@@ -383,8 +371,8 @@ body
 				font-size: 19px
 				padding-left: 0
 
-				&::before
-						content: ''
+				.acc-num
+						display: none
 
 				span.accordion-icon
 					&::before
@@ -438,17 +426,18 @@ body
 
 			.slideshow-container 
 				position: relative
+				margin-bottom: 40px
 
 			.mySlides 
 				display: none
 				position: relative
 				border-radius: 5px
-				background-color: #fff
+				background-color: $white-color
 				box-shadow: 0px 12px 24px #E5E5E5
 				padding: 40px
-				margin-bottom: 40px
 
 			.slide-item-content
+				margin-top: 40px
 
 				.slide-item-header
 					word-wrap: break-word
@@ -568,6 +557,16 @@ body
 				&::before
 					content: 'Q'
 					left: 0
+					height: 100%
+					display: flex
+					align-items: center
+					position: absolute
+					top: 0
+					font-family: actor, sans-serif
+					font-size: 40px
+					line-height: 48px
+					letter-spacing: 2px
+					color: $light-gray-color			
 
 				span.accordion-icon
 					position: absolute
@@ -586,10 +585,8 @@ body
 					padding-left: 60px
 
 					span.accordion-icon
-						background: url('../img/arrow-up.png') center/cover
-
-					&::before
-						content: 'Q'
+						background: url('../img/arrow-down.png') center/cover
+						transform: rotate(180deg)
 
 				&__content
 					padding: 0
@@ -678,6 +675,10 @@ body
 				font-style: normal
 				font-weight: 400
 				line-height: 36px
+				color: $gray-text-color
+
+				&:hover
+					color: $accent-green-color
 
 			.city-title
 				font-family: aclonica, sans-serif
@@ -691,18 +692,20 @@ body
 				display: flex
 				flex-direction: column
 
-				a
-					color: $gray-text-color
-					font-family: acme, sans-serif
-					font-size: 12px
-					line-height: 24px
-					letter-spacing: 2px
-					text-align: left
-					text-transform: uppercase
+				li
 					margin-bottom: 10px
 
-					&:hover
-						color: $accent-green-color
+					a
+						color: $gray-text-color
+						font-family: acme, sans-serif
+						font-size: 12px
+						line-height: 24px
+						letter-spacing: 2px
+						text-align: left
+						text-transform: uppercase
+
+						&:hover
+							color: $accent-green-color
 
 	.footer-socials
 		padding-top: 20px
@@ -742,7 +745,8 @@ body
 		&__tabs
 
 			&.sticky
-				left: calc(50% - 770px / 2)
+				left: 50%
+				transform: translate(-50%, 0)
 
 @media screen and (min-width: 992px)
 
@@ -751,9 +755,6 @@ body
 		&__logo
 			display: flex
 			align-items: center
-
-			img
-				height: 25px
 
 		.hamburger-menu
 			display: none
@@ -770,7 +771,7 @@ body
 
 			.menu__item
 				position: relative
-				color: #fff
+				color: $white-color
 				font-family: Acme, sans-serif
 				font-size: 12px
 				letter-spacing: 2px
@@ -785,17 +786,17 @@ body
 				left: calc(50% - 20px)
 				width: 40px
 				height: 2px
-				background-color: #fff
+				background-color: $white-color
 
 			.menu__buttons
 
 				.btn
-					color: #fff
-					border-color: #fff
+					color: $white-color
+					border-color: $white-color
 
 					&:hover
 						cursor: pointer
-						color: #fff
+						color: $white-color
 						background-color: $accent-green-color
 						border-color: $accent-green-color
 
@@ -806,7 +807,7 @@ body
 					@include btnPaddingX(54px)
 
 				.log-in-btn
-					@include btnPaddingX(22.5px)
+					@include btnPaddingX(22px)
 
 	.hero
 
@@ -821,17 +822,14 @@ body
 
 		&__tabs
 			height: 80px
-			bottom: -36px
 
 			&.sticky
 				top: 80px
 				height: 80px
-				left: calc(50% - 770px / 2)
 
 			nav
 				height: 100%
-				background-color: #fff
-				// padding: 10px 0
+				background-color: $white-color
 				display: flex
 
 				ul
@@ -872,7 +870,7 @@ body
 						left: 8px
 						top: 16px
 
-				&::before
+				span.acc-num
 					font-size: 110px
 					line-height: 130px
 
@@ -885,13 +883,10 @@ body
 			.accordion:last-of-type.active
 				border-bottom: none
 
-			span.accordion-header
-					max-width: 360px
-
 			.accordion__content
 
 				.accordion__text
-					max-width: 365px
+					padding-right: 80px
 					margin-left: 135px
 					font-size: 16px
 					line-height: 24px
@@ -911,6 +906,9 @@ body
 				padding-left: 180px
 				margin-bottom: 20px
 
+				&::before
+					font-size: 110px
+
 				&.active
 					font-size: 24px
 					padding-left: 180px
@@ -921,6 +919,7 @@ body
 
 				p
 					padding-left: 180px
+					padding-right: 100px
 
 					&::before
 						font-size: 110px
@@ -967,11 +966,13 @@ body
 					width: 25px
 
 				.slide-item-content
+					margin-top: 0
 					max-width: 770px
 					padding-left: 75px
 					display: flex
 					flex-direction: column
 					align-items: center
+					justify-content: center
 					min-height: 100%
 
 					.slide-item-header
@@ -981,7 +982,7 @@ body
 						word-break: break-all
 						font-size: 90px
 						line-height: 120px
-						letter-spacing: 1.5px
+						letter-spacing: 1px
 						padding-left: 0
 
 					.slide-item-text
@@ -1001,7 +1002,7 @@ body
 
 				nav
 
-					a
+					li
 						margin-bottom: 25px
 
 			.footer-contacts
