@@ -1,0 +1,1119 @@
+@import "fonts"
+@import "vars"
+@import "mixins"
+
+*
+	padding: 0
+	margin: 0
+	box-sizing: border-box
+
+ul, li
+	padding: 0
+	margin: 0
+
+li
+	list-style: none
+
+a, a:hover, a:active, a:visited
+	text-decoration: none
+	color: $main-text-color
+
+body
+	font-family: aclonica, sans-serif
+	font-size: 13px
+	line-height: 24px
+	color: $main-text-color
+
+.container
+	max-width: 1170px
+	margin: 0 auto
+	padding: 0 30px
+
+.btn
+	@include btn
+
+	&:hover
+			cursor: pointer
+
+.btn-transparent
+	@include btnTransparent
+
+.main-header
+	position: fixed
+	z-index: 10
+	top: 0
+	width: 100%
+	padding: 19px 0
+
+	.menu__item
+		text-transform: uppercase
+
+	.desktop-menu
+		display: none
+
+	&.sticky
+		background-color: $white-color
+
+		.hamburger-menu
+
+			.menu__btn
+
+				span
+					background-color: $gray-text-color
+
+					&::before, &::after
+						background-color: $gray-text-color
+
+
+		.main-header__logo
+			display: block
+			background: url('../img/logo.png') center/contain
+			background-repeat: no-repeat
+
+		.desktop-menu
+
+			.menu__item
+
+				color: $gray-text-color
+
+			.menu__item:hover::after, .menu__item.active::after
+				background-color: $gray-text-color
+
+			.menu__buttons
+
+				.btn
+					color: $gray-text-color
+					border-color: $gray-text-color
+
+					&:hover
+						color: $white-color
+						background-color: $accent-green-color
+						border-color: $accent-green-color
+
+
+	&__container
+		display: flex
+		justify-content: space-between
+	
+		#menu__toggle
+			opacity: 0
+
+		.menu__btn
+			display: flex
+			align-items: center
+			position: fixed
+			top: 18px
+			width: 22px
+			height: 22px
+			cursor: pointer
+			z-index: 1
+
+		.menu__btn > span,
+		.menu__btn > span::before,
+		.menu__btn > span::after
+			display: block
+			position: absolute
+			width: 100%
+			height: 2px
+			background-color: $white-color
+
+		.menu__btn > span::before
+			content: ''
+			top: -6px
+
+		.menu__btn > span::after
+			content: ''
+			top: 6px
+
+		.menu__box
+			z-index: 2
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			position: fixed
+			visibility: hidden
+			top: 62px
+			right: -100%
+			width: 100%
+			height: calc(100% - 62px)
+			margin: 0
+			padding: 40px 0
+			list-style: none
+			text-align: center
+			background-color: $white-color
+			box-shadow: 1px 0px 6px rgba(0, 0, 0, .2)
+
+			.menu__item
+				position: relative
+				display: block
+				color: $accent-green-color
+				font-family: Acme, sans-serif
+				font-size: 12px
+				letter-spacing: 2px
+				text-align: center
+				padding: 5px 0
+				margin-bottom: 15px
+
+			.menu__item:hover::after, .menu__item.active::after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 50%
+				transform: translate(-50%, 0)
+				width: 40px
+				height: 2px
+				background-color: $accent-green-color
+
+			.menu__buttons
+
+				.btn
+					display: block
+					margin: 0 auto
+					margin-bottom: 16px
+					user-select: none
+
+					&:hover
+						cursor: pointer
+						color: $white-color
+						background-color: $accent-green-color
+
+				.get-skout-btn
+					@include btnPaddingX(54px)
+
+				.log-in-btn
+					@include btnPaddingX(22px)
+
+		#menu__toggle:checked ~ .menu__btn > span
+			transform: rotate(45deg)
+
+		#menu__toggle:checked ~ .menu__btn > span::before
+			top: 0
+			transform: rotate(0)
+
+		#menu__toggle:checked ~ .menu__btn > span::after
+			top: 0
+			transform: rotate(90deg)
+
+		#menu__toggle:checked ~ .menu__box
+			visibility: visible
+			right: 0
+
+
+	&__logo
+		display: flex
+		width: 110px
+		background: url('../img/logo-white.png') center/contain
+		background-repeat: no-repeat
+		z-index: 2
+
+
+.hero
+	position: relative
+	color: $white-color
+	background: #11C0E6
+	background: -webkit-linear-gradient(60deg, #11C0E6 20%, #01F86E 95%)
+	background: -moz-linear-gradient(60deg, #11C0E6 20%, #01F86E 95%)
+	background: linear-gradient(60deg, #11C0E6 20%, #01F86E 95%)
+
+	.container
+		position: relative
+
+	&__credo
+		display: flex
+		justify-content: space-around
+		align-items: center
+
+		.credo__phrase
+			max-width: 670px
+
+			p
+				font-family: aclonica, sans-serif
+				font-size: 20px
+				line-height: 26px
+				letter-spacing: 0px
+				text-align: left
+				position: relative
+
+				&::before
+					position: absolute
+					top: 5px
+					left: -30px
+					content: ''
+					width: 2px
+					height: 75%
+					background-color: $white-color
+
+		.why-skout-btn
+			@include btnPaddingX(62px)
+			background-color: $white-color
+			color: $accent-green-color
+			border-color: $white-color
+
+			&:hover
+				color: $white-color
+				background-color: $accent-green-color
+				border-color: $accent-green-color
+
+	&__slogan
+		text-transform: uppercase
+		font-family: actor, sans-serif
+		font-size: 60px
+		font-weight: normal
+		line-height: 70px
+		letter-spacing: 1px
+		text-align: center
+		padding-top: 75px
+
+	// &__tabs
+	// 	max-width: 770px
+	// 	margin: 0 auto
+	// 	position: relative
+	// 	top: 30px
+	// 	border-radius: 5px
+	// 	border-top: 3px solid $accent-green-color
+	// 	box-shadow: 0px 12px 24px 0px #F2F2F2
+	// 	overflow: hidden
+
+	// 	&.sticky
+	// 		position: fixed
+	// 		top: 65px
+	// 		width: calc(100% - 60px)
+	// 		z-index: 5
+
+	// 	nav
+	// 		background-color: $white-color
+
+	// 		ul
+	// 			width: 100%
+	// 			display: flex
+			
+	// 			li
+	// 				flex-grow: 1
+	// 				text-align: center
+	// 				font-family: acme, sans-serif
+	// 				font-size: 12px
+	// 				text-transform: uppercase
+	// 				line-height: 20px
+	// 				border-right: 2px solid $light-gray-color
+	// 				padding: 15px 0
+
+	// 				.tab-item
+	// 					color: $gray-text-color
+	// 					width: 100%
+	// 					height: 100%
+	// 					display: flex
+	// 					align-items: center
+	// 					justify-content: center
+
+	// 					&:hover, &.active
+	// 						color: $accent-green-color
+
+	// 				&:last-child
+	// 					border: none
+
+.main
+	padding-top: 50px
+
+	.section-header
+		padding-top: 10px
+		position: relative
+	
+		&::before
+			content: ''
+			position: absolute
+			width: 100%
+			background-color: $mid-gray-color
+			height: 2px
+			border-radius: 5px
+			top: 0
+			left: 0
+
+		img
+			height: 20px
+			width: auto
+
+	.accordion-block
+		margin: 20px 0
+
+		ul li:last-of-type .accordion
+			border-bottom: 1px solid $accent-green-color
+
+		.accordion
+			display: flex
+			justify-content: space-between
+			align-items: center
+			position: relative
+			color: $main-text-color
+			background-color: $white-color
+			font-family: aclonica, sans-serif
+			line-height: 24px
+			font-size: 16px
+			cursor: pointer
+			border: none
+			border-top: 1px solid $accent-green-color
+			width: 100%
+			text-align: left
+			outline: none
+			transition: 0.4s
+			padding: 15px 0
+			padding-left: 60px
+			transition: $transition-time
+
+			&:hover
+				background-color: $accent-green-color
+
+			span.acc-num
+				position: absolute
+				height: 100%
+				display: flex
+				align-items: center
+				left: 15px
+				top: 0
+				font-family: actor, sans-serif
+				font-size: 40px
+				line-height: 48px
+				letter-spacing: 2px
+				color: #E5E5E5
+
+			span.accordion-icon
+				position: relative
+				top: 40%
+				right: 10px
+				display: inline-block
+				width: 14px
+				height: 14px
+				border: 1px solid $accent-green-color
+				box-shadow: 0px 3px 6px 0px rgba(127, 127, 127, 0.3)
+				border-radius: 50%
+
+				&::before
+					position: absolute
+					top: 2px
+					left: 5px
+					content: ''
+					width: 2px
+					height: 8px
+					background-color: $accent-green-color
+					border-radius: 5px
+
+				&::after
+					position: absolute
+					top: 5px
+					left: 2px
+					content: ''
+					width: 8px
+					height: 2px
+					background-color: $accent-green-color
+					border-radius: 5px
+
+			&.active
+				font-size: 19px
+				padding-left: 0
+
+				.acc-num
+						display: none
+
+				span.accordion-icon
+					&::before
+						content: ''
+						width: 0
+						height: 0
+
+			&__content
+				padding: 0 18px
+				background-color: white
+				display: none
+				overflow: hidden
+
+				&.show
+					display: block
+
+				p
+					font-size: 14px
+					margin-bottom: 20px
+
+			&__img
+				text-align: center
+				margin: 10px 0
+
+				img
+					width: 117px
+					height: auto
+
+			&__footer
+				position: relative
+				color: $gray-text-color
+				font-size: 12px
+				padding-left: 40px
+
+				&::before
+					content: ''
+					position: absolute
+					left: 0
+					width: 30px
+					height: 30px
+					background: url('../img/i-icon.png') center/cover
+
+	.glossary
+
+		&__slider
+			margin-top: 15px
+			padding: 30px 0
+			background: -webkit-linear-gradient(135deg, rgb(235, 250, 245), rgb(225, 225, 225), rgb(225, 227, 239))
+			background: -moz-linear-gradient(135deg, rgb(235, 250, 245), rgb(225, 225, 225), rgb(225, 227, 239))
+			background: linear-gradient(135deg, rgb(235, 250, 245), rgb(225, 225, 225), rgb(225, 227, 239))
+
+			.slideshow-container 
+				position: relative
+				margin-bottom: 40px
+
+			.mySlides 
+				display: none
+				position: relative
+				border-radius: 5px
+				background-color: $white-color
+				box-shadow: 0px 12px 24px #E5E5E5
+				padding: 40px
+
+			.slide-item-content
+				margin-top: 40px
+
+				.slide-item-header
+					word-wrap: break-word
+					font-family: actor, sans-serif
+					font-size: 32px
+					font-weight: normal
+					text-transform: uppercase
+					margin-bottom: 24px
+					padding-left: 16px
+
+				.slide-item-text
+					position: relative
+					font-size: 16px
+					line-height: 24px
+					padding-left: 16px
+
+					&::before
+						position: absolute
+						top: 5px
+						left: 0
+						content: ''
+						width: 2px
+						height: 65%
+						background-color: $accent-green-color
+
+			.prev, .next 
+				cursor: pointer
+				position: absolute
+				top: 32px
+				right: 52px
+				transition: 0.6s ease
+				user-select: none
+
+				img
+					width: 16px
+					height: 16px
+					border-radius: 50%
+					opacity: .5
+					transition: $transition-time
+
+			.prev
+				top: 64px
+				transform: rotate(180deg)
+
+			.prev:hover img, .next:hover img
+				opacity: 1
+				box-shadow: 0px 1px 3px rgba(127, 127, 127, 0.2)
+
+			.text 
+				color: $gray-text-color
+				font-size: 16px
+				line-height: 32px
+				width: 100%
+
+				ul
+
+					li
+						position: relative
+						user-select: none
+
+						&:hover
+							cursor: pointer
+
+							&::before
+								left: -35px
+								top: 50%
+								position: absolute
+								content: ''
+								width: 30px
+								height: 2px
+								border-radius: 2px
+								background-color: $accent-green-color
+
+						&.active
+
+							&::before
+								left: -35px
+								top: 50%
+								position: absolute
+								content: ''
+								width: 30px
+								height: 2px
+								border-radius: 2px
+								background-color: $accent-green-color
+
+
+			.fade 
+				-webkit-animation-name: fade
+				-webkit-animation-duration: $transition-time
+				animation-name: fade
+				animation-duration: $transition-time
+
+			@-webkit-keyframes fade 
+				from
+					opacity: .4
+				to
+					opacity: 1
+
+			@keyframes fade 
+				from
+					opacity: .4
+				to
+					opacity: 1
+
+	.faqs
+		padding-top: 30px
+
+		&__accordion
+
+			.accordion
+				border: none
+				padding-right: 30px
+
+				&:last-of-type
+					border: none
+
+				&::before
+					content: 'Q'
+					left: 0
+					height: 100%
+					display: flex
+					align-items: center
+					position: absolute
+					top: 0
+					font-family: actor, sans-serif
+					font-size: 40px
+					line-height: 48px
+					letter-spacing: 2px
+					color: $light-gray-color			
+
+				span.accordion-icon
+					position: absolute
+					right: 0
+					width: 18px
+					height: 11px
+					border: none
+					box-shadow: none
+					background: url('../img/arrow-down.png') center/cover
+
+					&::before, &::after
+						content: none
+
+				&.active
+					font-size: 16px
+					padding-left: 60px
+
+					span.accordion-icon
+						background: url('../img/arrow-down.png') center/cover
+						transform: rotate(180deg)
+
+				&__content
+					padding: 0
+
+					p
+						position: relative
+						padding-left: 60px
+						padding-right: 30px
+
+						&::before
+							content: 'A'
+							height: 100%
+							display: flex
+							align-items: center
+							position: absolute
+							top: 0
+							left: 3px
+							font-family: actor, sans-serif
+							font-size: 40px
+							line-height: 48px
+							letter-spacing: 2px
+							color: #E5E5E5
+
+			.more-faqs-btn
+				text-transform: uppercase
+				font-family: acme, sans-serif
+				font-size: 12px
+				letter-spacing: 2px
+				background-color: transparent
+				border: none
+				outline: none
+				color: $accent-green-color
+				display: block
+				margin: 0 auto
+				margin-top: 20px
+				border-bottom: 2px solid transparent
+
+				&:hover
+					cursor: pointer
+					border-color: $accent-green-color
+
+.main-footer
+	color: $gray-text-color
+	background-color: $footer-bg-color
+
+	.footer-blocks
+		padding: 25px 0
+
+		.footer-block
+			position: relative
+			margin-bottom: 15px
+
+			&:not(.footer-links)::before
+				position: absolute
+				content: ''
+				top: 0
+				left: -30px
+				width: calc(100% + 60px)
+				height: 2px
+				background-color: $accent-green-color
+
+			a.view-map
+				color: $accent-green-color
+				font-family: aclonica, sans-serif
+				font-size: 12px
+				line-height: 20px
+				letter-spacing: 0px
+
+				&:hover
+					color: $gray-text-color
+
+			p
+				font-family: aclonica, sans-serif
+				font-size: 12px
+				line-height: 20px
+				letter-spacing: 0px
+
+				&.main-phone
+					font-family: acme, sans-serif
+					line-height: 24px
+					letter-spacing: 2px
+					text-transform: uppercase
+
+			.phone-number
+				font-size: 16px
+				font-style: normal
+				font-weight: 400
+				line-height: 36px
+				color: $gray-text-color
+
+				&:hover
+					color: $accent-green-color
+
+			.city-title
+				font-family: aclonica, sans-serif
+				font-size: 16px
+				font-style: normal
+				font-weight: 400
+				line-height: 36px
+				letter-spacing: 0px
+
+			nav
+				display: flex
+				flex-direction: column
+
+				li
+					margin-bottom: 10px
+
+					a
+						color: $gray-text-color
+						font-family: acme, sans-serif
+						font-size: 12px
+						line-height: 24px
+						letter-spacing: 2px
+						text-align: left
+						text-transform: uppercase
+
+						&:hover
+							color: $accent-green-color
+
+	.footer-socials
+		padding-top: 20px
+		position: relative
+
+		&::before
+			content: ''
+			height: 1px
+			width: calc(100% + 60px)
+			position: absolute
+			top: 0
+			left: -30px
+			background-color: $mid-gray-color
+
+		ul
+			display: flex
+			justify-content: space-around
+
+		.footer-logo
+			text-align: center
+
+			img
+				max-width: 105px
+
+
+// ===============================================================
+// ==========================MEDIA================================
+// ===============================================================
+
+
+@media screen and (min-width: 768px)
+
+	.hero
+
+		.container
+
+		&__tabs
+
+			&.sticky
+				left: 50%
+				transform: translate(-50%, 0)
+
+@media screen and (min-width: 992px)
+
+	.main-header
+
+		&__logo
+			display: flex
+			align-items: center
+
+		.hamburger-menu
+			display: none
+
+		.desktop-menu
+			display: flex
+
+			.menu__nav
+
+				ul
+					height: 100%
+					display: flex
+					align-items: center
+
+			.menu__item
+				position: relative
+				color: $white-color
+				font-family: Acme, sans-serif
+				font-size: 12px
+				letter-spacing: 2px
+				text-align: center
+				padding: 5px 0
+				margin-right: 20px
+
+			.menu__item:hover::after, .menu__item.active::after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: calc(50% - 20px)
+				width: 40px
+				height: 2px
+				background-color: $white-color
+
+			.menu__buttons
+
+				.btn
+					color: $white-color
+					border-color: $white-color
+
+					&:hover
+						cursor: pointer
+						color: $white-color
+						background-color: $accent-green-color
+						border-color: $accent-green-color
+
+					&:first-child
+						margin-right: 20px
+
+				.get-skout-btn
+					@include btnPaddingX(54px)
+
+				.log-in-btn
+					@include btnPaddingX(22px)
+
+	.hero
+
+		.container
+
+		&__slogan
+			padding-top: 200px
+			padding-bottom: 100px
+			font-family: actor, sans-serif
+			font-size: 110px
+			line-height: 130px
+
+		&__tabs
+			height: 80px
+			top: 40px
+
+			&.sticky
+				// header height
+				top: 78px
+
+			nav
+				height: 100%
+				background-color: $white-color
+				display: flex
+
+				ul
+
+					li
+						display: flex
+						justify-content: center
+						align-items: center
+
+	.main
+		padding-top: 120px
+
+		.section-header
+
+			img
+				height: 40px
+
+		.accordion-block
+			margin: 45px 0 75px 0
+
+			.accordion
+				font-size: 24px
+				line-height: 36px
+				padding: 45px 0
+				padding-left: 120px
+
+				span.accordion-icon
+					width: 36px
+					height: 36px
+
+					&::before
+						height: 18px
+						top: 8px
+						left: 16px
+
+					&::after
+						width: 18px
+						left: 8px
+						top: 16px
+
+				span.acc-num
+					font-size: 110px
+					line-height: 130px
+
+		.tips__accordion
+
+			.accordion.active
+				font-size: 42px
+				line-height: 54px
+
+			.accordion:last-of-type.active
+				border-bottom: none
+
+			.accordion__content
+
+				.accordion__text
+					padding-right: 80px
+					margin-left: 135px
+					font-size: 16px
+					line-height: 24px
+
+				&.show
+					display: flex
+
+				.accordion__img
+
+					img
+						width: 270px
+						margin: 50px
+
+		.faqs__accordion
+
+			.accordion
+				padding-left: 180px
+				margin-bottom: 20px
+
+				&::before
+					font-size: 110px
+
+				&.active
+					font-size: 24px
+					padding-left: 180px
+
+			.accordion__content
+				font-size: 16px
+				padding: 30px 0
+
+				p
+					padding-left: 180px
+					padding-right: 100px
+
+					&::before
+						font-size: 110px
+						line-height: 130px
+						left: 8px
+
+			.more-faqs-btn
+				margin-top: 60px
+
+		.glossary__slider
+
+			.text
+
+				ul
+					width: 100%
+
+					li
+						padding-left: 140px
+
+						&.active::before, &:hover::before
+							left: 0
+							width: 105px
+
+			.slideshow-container
+				display: flex
+
+				.mySlides
+					min-width: 400px
+					height: 600px
+					padding-left: 0px
+
+				.prev, .next
+					width: max-content
+					left: 385px
+
+				.next
+					top: 20px
+
+				.prev
+					top: 52px
+
+				.prev img, .next img
+					height: 25px
+					width: 25px
+
+				.slide-item-content
+					margin-top: 0
+					max-width: 770px
+					padding-left: 75px
+					display: flex
+					flex-direction: column
+					align-items: center
+					justify-content: center
+					min-height: 100%
+
+					.slide-item-header
+						display: block
+						width: 100%
+						text-align: center
+						word-break: break-all
+						font-size: 90px
+						line-height: 120px
+						letter-spacing: 1px
+						padding-left: 0
+
+					.slide-item-text
+						max-width: 500px
+						word-break: break-all
+						font-size: 24px
+						line-height: 36px
+						margin-left: 50px
+
+	.main-footer
+
+		.footer-blocks
+			display: grid
+			grid-template-columns: repeat(4, 1fr)
+
+			.footer-links
+
+				nav
+
+					li
+						margin-bottom: 25px
+
+			.footer-contacts
+				grid-column: 2 / 5
+
+				.footer-block
+					display: flex
+					justify-content: space-between
+					padding: 10px 0 40px 0
+
+					&::before
+						left: 0
+						width: 100%
+
+					.city-title
+						font-size: 20px
+						line-height: 36px
+						flex-basis: 160px
+
+					p
+						font-size: 16px
+
+					a
+						font-size: 16px
+						line-height: 24px
+
+					.address
+						flex-basis: 220px
+
+		.footer-socials
+			display: flex
+			justify-content: space-between
+			padding: 28px 0
+
+			ul
+
+				li
+					margin-right: 52px
+
+
+			&::before
+				width: 100%
+				left: 0
+
+			.footer-logo
+
+				img
+					height: auto
+					max-width: 170px
+
+@media screen and (min-width: 1200px)
+
+	.main-footer
+
+		.footer-blocks
+
+			.footer-contacts
+
+				.footer-block
+
+					.city-title
+						font-size: 24px
+						line-height: 36px
+						flex-basis: 210px
+
+					p
+						font-size: 16px
+
+					a
+						font-size: 16px
+						line-height: 24px
+
+					.address
+						flex-basis: 220px

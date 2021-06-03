@@ -11,6 +11,12 @@ gulp.task('sass', () => {
 		.pipe(gulp.dest('./hw1/assets/css'));
 });
 
+gulp.task('sass', () => {
+	return gulp.src('./hw2/assets/sass/main.sass')
+		.pipe(sass())
+		.pipe(gulp.dest('./hw2/assets/css'));
+});
+
 gulp.task('watch', () => {
 	gulp.watch('./hw1/assets/sass/main.sass', gulp.series('sass'));
 });
