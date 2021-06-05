@@ -27,6 +27,7 @@ body
 .container
 	max-width: 1170px
 	margin: 0 auto
+	box-sizing: content-box
 	padding: 0 30px
 
 .btn
@@ -289,17 +290,17 @@ body
 		.container
 			display: grid
 
-		.fade-in
-			opacity: 0
+		// .fade-in
+		// 	opacity: 0
 
-			&.fade-show
-				opacity: 1
-				transition: opacity 2s
+		// 	&.fade-show
+		// 		opacity: 1
+		// 		transition: opacity 2s
 
-			&.fade-in-main
+		// 	&.fade-in-main
 
-				&.fade-show
-					transition: opacity 1s
+		// 		&.fade-show
+		// 			transition: opacity 1s
 
 		&__img
 			margin: 40px 0
@@ -336,6 +337,69 @@ body
 					background-color: $white-color
 					color: $accent-green-color
 
+	.cybersecurity
+		margin-top: 80px
+
+		.section-header
+			margin-bottom: 35px
+
+		.cybersecurity__items
+			display: flex
+			flex-direction: column
+
+		&__item
+			display: flex
+			position: relative
+			justify-content: space-between
+			padding: 10px 15px 10px
+			margin-bottom: 20px
+			box-shadow: 0px 12px 24px $box-shadow-color
+			border-radius: 5px
+			border-left: 5px solid $accent-green-color
+
+			&-header
+			font-size: 16px
+			line-height: 24px
+			letter-spacing: 0px
+
+			&-text
+				text-align: left
+
+			&-img
+				display: flex
+				align-items: center
+				margin: 0 15px
+
+				img
+					width: 58px
+					height: auto
+
+		&__tip
+			position: absolute
+			bottom: 15px
+			right: 15px
+
+			&-img
+				width: 19px
+				height: 19px
+				
+			&:hover
+
+				&::after
+					content: attr(data-title)
+					position: absolute
+					width: max-content
+					top: -50px
+					left: -250px
+					z-index: 5
+					font-size: 12px
+					color: $tip-text-color
+					background-color: $white-color
+					border: 1px solid $light-gray-color
+					border-radius: 7px
+					padding: 8px 3px
+
+		.more-tips-btn
 
 .main-footer
 	color: $gray-text-color
@@ -457,6 +521,30 @@ body
 				left: 50%
 				transform: translate(-50%, 0)
 
+	.main 
+
+		.cybersecurity
+			margin-top: 80px
+
+			.section-header
+				margin-bottom: 35px
+
+			.cybersecurity__items
+				display: flex
+				flex-wrap: wrap
+				flex-direction: row
+				justify-content: center
+
+				.cybersecurity__item
+					max-width: 45%
+					margin: 0 15px 30px
+
+			&__tip
+
+				&-img
+						width: 22px
+						height: 22px
+
 @media screen and (min-width: 992px)
 
 	.main-header
@@ -524,6 +612,7 @@ body
 		&__credo
 			flex-direction: row
 			justify-content: space-between
+			padding: 0 20px
 
 		.credo__phrase
 			max-width: 670px
@@ -542,8 +631,9 @@ body
 					background-color: $white-color
 
 		&__slogan
-			padding-top: 200px
-			padding-bottom: 100px
+			padding: 200px 30px 100px
+			// padding-top: 200px
+			// padding-bottom: 100px
 			font-family: actor, sans-serif
 			font-size: 110px
 			line-height: 130px
@@ -556,17 +646,17 @@ body
 					grid-template-columns: 600px auto
 					grid-template-rows: repeat(3, 1fr)
 
-			.fade-in
-				opacity: 0
+			// .fade-in
+			// 	opacity: 0
 
-				&.fade-show
-					opacity: 1
-					transition: opacity 2s
+			// 	&.fade-show
+			// 		opacity: 1
+			// 		transition: opacity 2s
 
-				&.fade-in-main
+			// 	&.fade-in-main
 
-					&.fade-show
-						transition: opacity 1s
+			// 		&.fade-show
+			// 			transition: opacity 1s
 
 			&__img
 				margin: 0
@@ -594,6 +684,31 @@ body
 				text-align: center
 				order: 1
 				grid-area: 3 / 2 / 4 / 3
+
+
+		.cybersecurity
+
+			&__items
+				display: flex
+				flex-wrap: wrap
+				flex-direction: row
+				justify-content: center
+
+			&__item
+				max-width: 40%
+				padding: 34px 18px 16px 60px
+
+			&__item-header
+				font-size: 24px
+				line-height: 36px
+				margin-bottom: 16px
+
+			&__item-img
+
+				img
+					width: 68px
+
+
 
 
 	.main-footer
@@ -670,6 +785,13 @@ body
 					&:first-child
 						margin-right: 20px
 
+	.hero
+
+		&__credo
+			flex-direction: row
+			justify-content: space-between
+			padding: 0 80px
+
 	.main
 
 		.about
@@ -694,6 +816,19 @@ body
 
 				.learn-more-btn
 					// margin-right: 70px
+
+		.cybersecurity
+
+			&__items
+
+			&__item
+				width: 500px
+
+			&__item-img
+
+				img
+					width: 90px
+
 
 
 	.main-footer
@@ -728,4 +863,13 @@ body
 			&__buttons
 
 				.learn-more-btn
-					margin-right: 70px
+					margin-right: 50px
+
+		.cybersecurity
+
+			&__tip
+						
+					&:hover
+
+						&::after
+							left: -140px
