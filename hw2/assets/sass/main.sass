@@ -512,6 +512,7 @@ body
 
 			.slick-slide
 				margin-right: 13px
+				width: max-content !important
 
 		&__slide
 			padding: 35px 20px
@@ -519,6 +520,17 @@ body
 			background-color: $white-color
 			box-shadow: 0px 12px 24px 0px rgba(229, 229, 229, 1)
 			max-width: 260px
+
+			&:hover
+				// background-color: transparent
+				background: -webkit-linear-gradient(315deg, rgb(0, 233, 155), rgb(9, 202, 215), rgb(25, 178, 248))
+				background: -moz-linear-gradient(315deg, rgb(0, 233, 155), rgb(9, 202, 215), rgb(25, 178, 248))
+				background: linear-gradient(315deg, rgb(0, 233, 155), rgb(9, 202, 215), rgb(25, 178, 248))
+
+				.plans__slide-header, .plans__slide-list_item
+					color: $white-color
+
+
 
 		&__slide-header
 			color: $accent-green-color
@@ -668,31 +680,30 @@ body
 					text-transform: uppercase
 
 	.get-in-touch
-		position: relative
-		margin-bottom: 400px
+
+		&__banner
 
 		&__img
-			position: absolute
-			width: 100%
-			left: 0
-			z-index: 5
+			position: relative
+			width: calc(100% + 60px)
+			left: -30px
+			z-index: 1
 
 			img
 				max-width: 100%
-				z-index: 5
 
 		&__text
 			margin-bottom: 10px
 
 		&__forms
 			position: relative
+			top: -75px
 			background: -webkit-linear-gradient(90deg, rgb(44, 213, 202) 8%, rgb(0, 232, 159) 43%, rgb(18, 189, 232))
 			background: -moz-linear-gradient(90deg, rgb(44, 213, 202) 8%, rgb(0, 232, 159) 43%, rgb(18, 189, 232))
 			background: linear-gradient(90deg, rgb(44, 213, 202) 8%, rgb(0, 232, 159) 43%, rgb(18, 189, 232))
-			margin-top: 75%
 			padding: 30px
 			border-radius: 5px
-			z-index: 10
+			z-index: 2
 
 			input
 				width: 100%
@@ -720,7 +731,7 @@ body
 				color: $white-color
 
 				span
-					visibility: hidden
+					margin-left: 30px
 
 				button
 					display: block
@@ -881,6 +892,13 @@ body
 				&-img
 						width: 22px
 						height: 22px
+
+		.about
+
+			&__img
+				margin: 40px auto 40px
+				max-width: 60%
+
 
 @media screen and (min-width: 992px)
 
@@ -1116,6 +1134,110 @@ body
 						width: max-content
 						margin: 0
 
+		.plans
+
+			&__slider-container
+				display: flex
+				justify-content: space-between
+
+			&__slide-header
+				font-size: 18px
+				margin-bottom: 30px
+
+
+		.reviews
+
+			&__slider-container
+
+				.slick-dots
+
+					li
+						width: 120px
+
+						button
+							height: 70px
+
+				.reviews__slide
+					display: flex !important
+					justify-content: space-between
+					align-items: center
+
+					.slide-header
+						margin: 0
+						margin-right: 150px
+
+						img
+							max-width: 300px
+
+					.quote-text
+						font-size: 24px
+						line-height: 36px
+
+					.quote-author
+						font-size: 12px
+						line-height: 24px
+						text-align: right
+
+		.get-in-touch
+			position: relative
+			margin-bottom: 40px
+
+			&__banner
+				display: flex
+				justify-content: space-between
+
+			&__info
+				order: 1
+				max-width: 50%
+
+			&__img
+				order: 0
+				position: relative
+				width: calc(50% + 30px)
+				left: -30px
+
+				img
+					max-width: 100%
+
+			&__text
+				margin-bottom: 10px
+				font-size: 16px
+
+			&__forms
+				max-width: 1030px
+				margin: 0 auto
+				top: -35px
+				padding: 30px 50px
+				display: flex
+				justify-content: space-between
+
+				form
+					width: 40%
+
+				input
+					font-size: 10px
+					line-height: 24px
+					letter-spacing: 2px
+					padding: 5px 0
+					margin-bottom: 14px
+
+					&.msp-input
+						margin-top: 0
+
+				.submit-btn
+					display: flex
+					color: $white-color
+
+					span
+						display: flex
+						align-items: center
+						margin-left: 40px
+						font-size: 24px
+
+					button
+						width: 35px
+						height: 35px
+						background-repeat: no-repeat
 
 	.main-footer
 
@@ -1247,15 +1369,10 @@ body
 					// margin-right: 50px
 					// max-width: 330px !important
 
-			&__slide
+			.plans__slide
 				padding: 40px
-				max-width: 330px
-
-			&__slide-header
-				font-size: 12px
-				line-height: 24px
-				letter-spacing: 2.25px
-				margin-bottom: 30px
+				width: 300px
+				max-width: 100%
 
 			&__slide-list
 
@@ -1277,6 +1394,47 @@ body
 				margin-top: 45px
 				@include btnPaddingX(40px)
 
+
+		.get-in-touch
+
+			.container
+				max-width: 100%
+				padding: 0
+
+			&__banner
+				justify-content: flex-start
+
+			&__info
+				max-width: 470px
+				margin-left: 30px
+
+			&__img
+				position: relative
+				left: 0px
+
+				img
+					max-width: 100%
+
+			&__text
+				margin-bottom: 10px
+
+			&__forms
+				max-width: 1030px
+				margin: 0 auto
+				top: -50px
+				padding: 30px 50px
+				display: flex
+				justify-content: space-between
+
+				form
+					width: 40%
+
+				input
+					font-size: 10px
+					line-height: 24px
+					letter-spacing: 2px
+					padding: 5px 0
+					margin-bottom: 14px
 
 
 	.main-footer
@@ -1321,3 +1479,12 @@ body
 
 						&::after
 							left: -140px
+
+		.plans
+
+			&__slider-container
+
+				.plans__slide
+					padding: 40px
+					width: 330px
+

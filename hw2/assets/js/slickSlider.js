@@ -14,14 +14,20 @@ $(document).ready(function(){
 	  slidesToScroll: 1,
 	  autoplay: true,
   	autoplaySpeed: 2000,
-	  // centerMode: true,
-	  // variableWidth: true
 
 	  responsive: [
 	  {
-      breakpoint: 768,
+	  	breakpoint: 300,
       settings: {
     	  slidesToShow: 1,
+			  centerMode: true,
+			  variableWidth: true
+      }
+	  },
+	  {
+      breakpoint: 768,
+      settings: {
+    	  slidesToShow: 2,
 			  centerMode: true,
 			  variableWidth: true
       }
@@ -34,9 +40,7 @@ $(document).ready(function(){
     },
     {
       breakpoint: 10000,
-      settings: {
-    	  slidesToShow: 4,
-      }
+      settings: 'unslick'
     },
     
   ]
@@ -47,7 +51,7 @@ $(document).ready(function(){
   $('.reviews__slider-container').slick({
   	arrows: false,
   	dots: true,
-  	autoplay: true,
+  	autoplay: false,
   	autoplaySpeed: 2000,
   });
 
