@@ -520,12 +520,14 @@ body
 			background-color: $white-color
 			box-shadow: 0px 12px 24px 0px rgba(229, 229, 229, 1)
 			max-width: 260px
+			transition: $transition-time
 
 			&:hover
 				// background-color: transparent
 				background: -webkit-linear-gradient(315deg, rgb(0, 233, 155), rgb(9, 202, 215), rgb(25, 178, 248))
 				background: -moz-linear-gradient(315deg, rgb(0, 233, 155), rgb(9, 202, 215), rgb(25, 178, 248))
 				background: linear-gradient(315deg, rgb(0, 233, 155), rgb(9, 202, 215), rgb(25, 178, 248))
+				transform: scale(1.1)
 
 				.plans__slide-header, .plans__slide-list_item
 					color: $white-color
@@ -1366,8 +1368,6 @@ body
 					justify-content: space-around
 
 				.slick-slide
-					// margin-right: 50px
-					// max-width: 330px !important
 
 			.plans__slide
 				padding: 40px
