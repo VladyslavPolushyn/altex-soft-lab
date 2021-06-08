@@ -560,6 +560,8 @@ body
 
 
 	.reviews
+		position: relative
+		top: -150px
 
 		&__slider-container
 
@@ -665,23 +667,76 @@ body
 					text-align: center
 					text-transform: uppercase
 
-		// .company-logos
-		// 	display: flex
-		// 	max-width: 100%
-		// 	justify-content: space-between
-		// 	align-items: center
+	.get-in-touch
+		position: relative
+		margin-bottom: 400px
 
-		// 	li
-		// 		display: flex
-		// 		align-items: center
-		// 		justify-content: center
-		// 		max-width: 45px
+		&__img
+			position: absolute
+			width: 100%
+			left: 0
+			z-index: 5
 
-		// 		img
-		// 			max-width: 100%
+			img
+				max-width: 100%
+				z-index: 5
 
+		&__text
+			margin-bottom: 10px
 
-			
+		&__forms
+			position: relative
+			background: -webkit-linear-gradient(90deg, rgb(44, 213, 202) 8%, rgb(0, 232, 159) 43%, rgb(18, 189, 232))
+			background: -moz-linear-gradient(90deg, rgb(44, 213, 202) 8%, rgb(0, 232, 159) 43%, rgb(18, 189, 232))
+			background: linear-gradient(90deg, rgb(44, 213, 202) 8%, rgb(0, 232, 159) 43%, rgb(18, 189, 232))
+			margin-top: 75%
+			padding: 30px
+			border-radius: 5px
+			z-index: 10
+
+			input
+				width: 100%
+				background-color: transparent
+				color: $white-color
+				font-family: acme, sans-serif
+				font-size: 10px
+				line-height: 24px
+				letter-spacing: 2px
+				text-transform: uppercase
+				outline: none
+				border: none
+				border-bottom: 2px solid $input-border-color
+				padding: 5px 0
+				margin-bottom: 14px
+
+				&::placeholder
+					color: $white-color
+
+				&.msp-input
+					margin-top: 40px
+
+			.submit-btn
+				display: flex
+				color: $white-color
+
+				span
+					visibility: hidden
+
+				button
+					display: block
+					margin-left: auto
+					width: 25px
+					height: 25px
+					background-color: transparent
+					border: none
+					outline: none
+					border-radius: 50%
+					background: url('../img/arrow-right-wight.png') center
+
+					&:hover
+						cursor: pointer
+	
+
 
 .main-footer
 	color: $gray-text-color

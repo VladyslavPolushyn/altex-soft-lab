@@ -47,7 +47,7 @@ $(document).ready(function(){
   $('.reviews__slider-container').slick({
   	arrows: false,
   	dots: true,
-  	autoplay: false,
+  	autoplay: true,
   	autoplaySpeed: 2000,
   });
 
