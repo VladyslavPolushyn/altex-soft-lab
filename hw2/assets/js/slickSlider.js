@@ -16,45 +16,42 @@ $(document).ready(function(){
   	autoplaySpeed: 2000,
 
 	  responsive: [
-	  {
-	  	breakpoint: 300,
-      settings: {
-    	  slidesToShow: 1,
-			  centerMode: true,
-			  variableWidth: true
-      }
-	  },
-	  {
-      breakpoint: 768,
-      settings: {
-    	  slidesToShow: 2,
-			  centerMode: true,
-			  variableWidth: true
-      }
-    },
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 3, 
-      }
-    },
-    {
-      breakpoint: 10000,
-      settings: 'unslick'
-    },
-    
-  ]
+		  {
+		  	breakpoint: 300,
+	      settings: {
+	    	  slidesToShow: 1,
+				  centerMode: true,
+				  variableWidth: true
+	      }
+		  },
+		  {
+	      breakpoint: 768,
+	      settings: {
+	    	  slidesToShow: 2,
+				  centerMode: true,
+				  variableWidth: true
+	      }
+	    },
+	    {
+	      breakpoint: 992,
+	      settings: {
+	        slidesToShow: 3, 
+	      }
+	    },
+	    {
+	      breakpoint: 10000,
+	      settings: 'unslick'
+	    },
+	  ]
 
   });
 
-  
   $('.reviews__slider-container').slick({
   	arrows: false,
   	dots: true,
   	autoplay: false,
   	autoplaySpeed: 2000,
   });
-
 
 });
 

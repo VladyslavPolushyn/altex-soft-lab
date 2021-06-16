@@ -1,24 +1,22 @@
-const desktopMenuLinks = document.querySelectorAll('#desktopMenu .menu__item');
-const mobileMenuLinks = document.querySelectorAll('#mobileMenu .menu__item');
+const desktopMenuLinks = document.querySelectorAll('#desktop-menu .menu__item');
+const mobileMenuLinks = document.querySelectorAll('#mobile-menu .menu__item');
 
 desktopMenuLinks.forEach(elem => {
 	elem.addEventListener('click', () => {
-		removeActiveClass(desktopMenuLinks);
+		removeActiveClass(desktop-menuLinks);
 		elem.classList.add('active');
 	})
 });
 
 mobileMenuLinks.forEach(elem => {
 	elem.addEventListener('click', () => {
-		removeActiveClass(mobileMenuLinks);
+		removeActiveClass(mobile-menuLinks);
 		elem.classList.add('active');
 	})
 });
 
 function removeActiveClass(arr) {
-
 	arr.forEach(elem => {
 		elem.classList.remove('active');
 	});
-
 }

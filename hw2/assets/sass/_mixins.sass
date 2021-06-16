@@ -2,29 +2,47 @@
 	font-family: acme, sans-serif
 	display: inline-block
 	text-transform: uppercase
-	height: 40px
-	border: 2px solid $accent-green-color
-	background-color: $accent-green-color
+	padding-top: 10px
+	padding-bottom: 10px
+	border: 2px solid $color-accent
+	background-color: $color-accent
 	box-shadow: 0px 6px 12px 0px rgba(127, 127, 127, 0.3)
 	color: #fff
 	border-radius: 20px
 	font-size: 12px
 	letter-spacing: 2px
 	outline: none
-	
-@mixin btnTransparent
-	background-color: transparent
-	color: $accent-green-color
 
 @mixin btnPaddingX($paddingX)
-	padding: 0 $paddingX
+	padding-left: $paddingX
+	padding-right: $paddingX
 
 @mixin primaryBtnHover()
-	color: $accent-green-color
-	border-color: $accent-green-color
-	background-color: $white-color
+	color: $color-accent
+	border-color: $color-accent
+	background-color: $color-white
 
 @mixin secondaryBtnHover()
-	color: $white-color
-	border-color: $accent-green-color
-	background-color: $accent-green-color
+	color: $color-white
+	border-color: $color-accent
+	background-color: $color-accent
+
+@mixin problems-bg-gradient
+	background: -webkit-linear-gradient(45deg, rgb(152, 207, 195), rgb(248, 248, 250), rgb(255, 255, 255))
+		background: -moz-linear-gradient(45deg, rgb(152, 207, 195), rgb(248, 248, 250), rgb(255, 255, 255))
+		background: linear-gradient(45deg, rgb(152, 207, 195), rgb(248, 248, 250), rgb(255, 255, 255))
+
+@mixin hero-bg-gradient
+	background: -webkit-linear-gradient(60deg, #11C0E6 20%, #01F86E 95%)
+	background: -moz-linear-gradient(60deg, #11C0E6 20%, #01F86E 95%)
+	background: linear-gradient(60deg, #11C0E6 20%, #01F86E 95%)
+
+@mixin slide-hover-bg-gradient
+	background: -webkit-linear-gradient(315deg, rgb(0, 233, 155), rgb(9, 202, 215), rgb(25, 178, 248))
+	background: -moz-linear-gradient(315deg, rgb(0, 233, 155), rgb(9, 202, 215), rgb(25, 178, 248))
+	background: linear-gradient(315deg, rgb(0, 233, 155), rgb(9, 202, 215), rgb(25, 178, 248))
+
+@mixin forms-bg-gradient
+	background: -webkit-linear-gradient(90deg, rgb(44, 213, 202) 8%, rgb(0, 232, 159) 43%, rgb(18, 189, 232))
+	background: -moz-linear-gradient(90deg, rgb(44, 213, 202) 8%, rgb(0, 232, 159) 43%, rgb(18, 189, 232))
+	background: linear-gradient(90deg, rgb(44, 213, 202) 8%, rgb(0, 232, 159) 43%, rgb(18, 189, 232))

@@ -9,17 +9,17 @@
 </head>
 <body>
 	
-	<header class="main-header" id="mainHeader">
+	<header class="main-header" id="main-header">
 		<div class="container main-header__container">
 			<a href="#" class="main-header__logo"></a>
 			<div class="main-header__nav">
 				<div class="hamburger-menu">
-				  <input id="menu__toggle" type="checkbox" />
-				  <label class="menu__btn" for="menu__toggle">
+				  <input id="menu-toggle" type="checkbox" />
+				  <label class="menu__btn" for="menu-toggle">
 				    <span></span>
 				  </label>
 				  <div class="menu__box">
-				  	<nav class="menu__nav" id="mobileMenu">
+				  	<nav class="menu__nav" id="mobile-menu">
 				  		<ul>
 				  			<li><a class="menu__item active" href="#">why skout</a></li>
 						    <li><a class="menu__item" href="#">products</a></li>
@@ -30,13 +30,13 @@
 				  		</ul>
 					  </nav>
 					  <div class="menu__buttons">
-					  	<button class="btn btn-transparent get-skout-btn">get skout</button>
-					  	<button class="btn btn-transparent log-in-btn">log in</button>
+					  	<button class="btn btn-transparent wide-btn">get skout</button>
+					  	<button class="btn btn-transparent narrow-btn">log in</button>
 					  </div>
 				  </div>
 				</div>
 				<div class="desktop-menu">
-					<nav class="menu__nav" id="desktopMenu">
+					<nav class="menu__nav" id="desktop-menu">
 					    <ul>
 				  			<li><a class="menu__item active" href="#">why skout</a></li>
 						    <li><a class="menu__item" href="#">products</a></li>
@@ -47,8 +47,8 @@
 				  		</ul>
 					  </nav>
 					  <div class="menu__buttons">
-					  	<button class="btn btn-transparent get-skout-btn">get skout</button>
-					  	<button class="btn btn-transparent log-in-btn">log in</button>
+					  	<button class="btn btn-transparent wide-btn">get skout</button>
+					  	<button class="btn btn-transparent narrow-btn">log in</button>
 					  </div>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 
 			<div class="hero__credo credo">
 					<div class="credo__phrase">
-						<p>
+						<p class="credo__text">
 							SKOUT is a cybersecurity company that delivers total protection for total peace of mind. Whether you’re an international conglomerate or a mom-and-pop shop we make cybersecurity easy and accessible because we believe security is universal and peace of mind is worth protecting.
 						</p>
 					</div>
@@ -79,7 +79,7 @@
 		
 			<section class="about" id="about">
 				<div class="container">
-					<div class="about__info fade-in">
+					<div class="about__info">
 						<h2 class="section-header">
 							What is SKOUT?
 						</h2>
@@ -87,12 +87,12 @@
 							A cybersecurity platform that offers world-class protection, monitoring everything from emails to endpoints. With a team of security experts from both the public and private sectors, our cloud-native streaming data analytics platform offers total peace of mind to businesses of any size.
 						</p>
 					</div>
-					<div class="about__img fade-in fade-in-main">
+					<div class="about__img">
 						<img src="assets/img/SKOUT_SA_Mockup.png" alt="SKOUT SA Mockup">
 					</div>
-					<div class="about__buttons fade-in">
-						<button class="btn learn-more-btn">learn more</button>
-						<button class="btn explore-btn">explore products</button>
+					<div class="about__buttons">
+						<button class="btn">learn more</button>
+						<button class="btn">explore products</button>
 					</div>
 				</div>
 			</section>
@@ -456,7 +456,7 @@
 				</div>
 			</section>
 
-			<section class="get-in-touch" id="getInTouch">
+			<section class="get-in-touch" id="get-in-touch">
 				<div class="container">
 
 					<div class="get-in-touch__banner">
@@ -497,23 +497,23 @@
 		<div class="container">
 			<div class="footer-blocks">
 				<div class="footer-block footer-links">
-					<nav>
+					<nav class="footer-nav">
 						<ul>
 							<li><a href="#">Blog</a></li>
 							<li><a href="#">Company</a></li>
 							<li><a href="#">Terms & Conditions</a></li>
 							<li><a href="#">Privacy Poacy</a></li>
 							<li><a href="#">Careers</a></li>
+							<li class="main-phone">
+								Call the SOC <br>
+								<a class="phone-number" href="tel:18558384500">1-855-838-4500</a>
+							</li>
 						</ul>
 					</nav>
-					<p class="main-phone">
-						Call the SOC <br>
-						<a class="phone-number" href="tel:18558384500">1-855-838-4500</a>
-					</p>
 				</div>
 
 				<div class="footer-contacts">
-					<div class="footer-block block-1">
+					<div class="footer-block">
 						<h3 class="city-title">New York</h3 class="city-title">
 						<p>
 							<a class="phone-number" href="tel:+16312036600">+1 631-203-6600</a>
@@ -524,7 +524,7 @@
 						</p>
 						<a href="#" class="view-map">View map</a>
 					</div>
-					<div class="footer-block block-2">
+					<div class="footer-block">
 						<h3 class="city-title long-city-title">Corporate Headquarters</h3 class="city-title">
 						<p>
 							<a class="phone-number" href="tel:+16312036600">+1 631-203-6600</a>
@@ -535,7 +535,7 @@
 						</p>
 						<a href="#" class="view-map">View map</a>
 					</div>
-					<div class="footer-block block-3">
+					<div class="footer-block">
 						<h3 class="city-title">EMEA</h3 class="city-title">
 						<p>
 							<a class="phone-number" href="tel:+35316600800">+353-1-6600800</a>
@@ -584,7 +584,6 @@
 
 	<script src="assets/js/mainMenu.js"></script>
 	<script src="assets/js/stickyMenu.js"></script>
-	<script src="assets/js/fadeIn.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="assets/libs/slick/js/slick.js"></script>
 	<script src="assets/js/slickSlider.js"></script>

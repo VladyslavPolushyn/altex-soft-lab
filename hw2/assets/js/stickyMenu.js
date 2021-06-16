@@ -1,4 +1,4 @@
-const headerNav = document.getElementById('mainHeader');
+const headerNav = document.getElementById('main-header');
 const main = document.querySelector('.main');
 
 const headerOffsetNumber = 30;
