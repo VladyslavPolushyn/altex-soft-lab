@@ -1,0 +1,1414 @@
+@import "fonts"
+@import "vars"
+@import "mixins"
+@import "reset"
+
+body
+	font-family: aclonica, sans-serif
+	font-size: $font-size-body-default
+	line-height: 24px
+	color: $color-main-text
+
+.container
+	max-width: 1170px
+	margin: 0 auto
+	box-sizing: content-box
+	padding: 0 30px
+
+.btn
+	@include btn
+
+	&:hover
+			cursor: pointer
+
+.btn-transparent
+	background-color: transparent
+
+.main-header
+	position: fixed
+	z-index: 10
+	top: 0
+	width: 100%
+	padding: 19px 0
+
+	.menu__item
+		text-transform: uppercase
+
+	.desktop-menu
+		display: none
+
+	&.sticky
+		background-color: $color-white
+
+		.hamburger-menu
+
+			.menu__btn
+				box-shadow: none
+
+				span
+					background-color: $color-secondary-text
+
+					&::before, &::after
+						background-color: $color-secondary-text
+
+		.main-header__logo
+			display: block
+			background: url('../img/logo.png') center/contain
+			background-repeat: no-repeat
+
+		.desktop-menu
+
+			.menu__item
+
+				color: $color-secondary-text
+
+			.menu__item:hover::after, .menu__item.active::after
+				background-color: $color-secondary-text
+
+			.menu__buttons
+
+				.btn
+					color: $color-secondary-text
+					border-color: $color-secondary-text
+					box-shadow: none
+
+					&:hover
+						@include secondaryBtnHover
+
+	&__container
+		display: flex
+		justify-content: space-between
+	
+		#menu-toggle
+			opacity: 0
+
+		.menu__btn
+			display: flex
+			align-items: center
+			position: fixed
+			top: 18px
+			width: 22px
+			height: 22px
+			cursor: pointer
+			z-index: 1
+
+		.menu__btn > span,
+		.menu__btn > span::before,
+		.menu__btn > span::after
+			display: block
+			position: absolute
+			width: 100%
+			height: 2px
+			background-color: $color-white
+
+		.menu__btn > span::before
+			content: ''
+			top: -6px
+
+		.menu__btn > span::after
+			content: ''
+			top: 6px
+
+		.menu__box
+			z-index: 2
+			display: flex
+			flex-direction: column
+			justify-content: space-between
+			position: fixed
+			visibility: hidden
+			top: 62px
+			right: -100%
+			width: 100%
+			height: calc(100% - 62px)
+			margin: 0
+			padding: 40px 0
+			list-style: none
+			text-align: center
+			background-color: $color-white
+			box-shadow: 1px 0px 6px rgba(0, 0, 0, .2)
+
+			.menu__item
+				position: relative
+				display: block
+				color: $color-accent
+				font-family: Acme, sans-serif
+				font-size: $font-size-menu-text
+				letter-spacing: 2px
+				text-align: center
+				padding: 5px 0
+				margin-bottom: 15px
+
+			.menu__item:hover::after, .menu__item.active::after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 50%
+				transform: translate(-50%, 0)
+				width: 40px
+				height: 2px
+				background-color: $color-accent
+
+			.menu__buttons
+
+				.btn
+					display: block
+					margin: 0 auto
+					margin-bottom: 16px
+					user-select: none
+
+					&:hover
+						cursor: pointer
+						color: $color-white
+						background-color: $color-accent
+
+				.wide-btn
+					@include btnPaddingX(54px)
+
+				.narrow-btn
+					@include btnPaddingX(22px)
+
+		#menu-toggle:checked ~ .menu__btn > span
+			transform: rotate(45deg)
+
+		#menu-toggle:checked ~ .menu__btn > span::before
+			top: 0
+			transform: rotate(0)
+
+		#menu-toggle:checked ~ .menu__btn > span::after
+			top: 0
+			transform: rotate(90deg)
+
+		#menu-toggle:checked ~ .menu__box
+			visibility: visible
+			right: 0
+
+	&__logo
+		display: flex
+		width: 110px
+		background: url('../img/logo-white.png') center/contain
+		background-repeat: no-repeat
+		z-index: 2
+
+.hero
+	position: relative
+	color: $color-white
+	background: #11C0E6
+	@include hero-bg-gradient
+	padding-bottom: 100px	
+
+	.container
+		position: relative
+
+	&__credo
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+
+		.credo__phrase
+			margin-bottom: 20px
+
+			.credo__text
+				position: relative
+				font-family: aclonica, sans-serif
+				font-size: $font-size-body-default
+				line-height: 24px
+				letter-spacing: 0px
+				text-align: left
+				margin-top: 30px
+				padding-left: 20px
+
+				&::before
+					position: absolute
+					top: 5px
+					left: 0
+					content: ''
+					width: 2px
+					height: 75%
+					background-color: $color-white
+
+		.why-skout-btn
+			@include btnPaddingX(62px)
+			width: max-content
+			background-color: $color-white
+			color: $color-accent
+			border-color: $color-white
+
+			&:hover
+				color: $color-white
+				background-color: $color-accent
+				border-color: $color-accent
+
+	&__slogan
+		text-transform: uppercase
+		font-family: actor, sans-serif
+		font-size: $font-size-hero-slogan-mobile
+		font-weight: normal
+		line-height: 70px
+		letter-spacing: 1px
+		text-align: center
+		padding-top: 75px
+
+.main
+	padding-top: 60px
+
+	.section-header
+		font-family: aclonica, sans-serif
+		font-size: $font-size-section-header-mobile
+		font-style: normal
+		font-weight: 400
+		line-height: 36px
+		letter-spacing: 0px
+		text-align: left
+		margin-bottom: 20px
+
+	.about
+
+		.container
+			display: grid
+
+		&__img
+			margin: 40px 0
+
+			img
+				width: 100%
+				height: auto
+
+		&__text
+			font-family: aclonica, sans-serif
+			font-size: $font-size-body-default
+			line-height: 24px
+			letter-spacing: 0px
+			text-align: left
+
+		&__buttons
+			text-align: center
+
+			.btn:first-child
+				@include btnPaddingX(57px)
+				color: $color-accent
+				background-color: $color-white
+				border-color: $color-accent
+				margin-bottom: 30px
+
+				&:hover
+					@include secondaryBtnHover
+
+			.btn:last-child
+				@include btnPaddingX(35px)
+
+				&:hover
+					@include primaryBtnHover
+
+	.cybersecurity
+		margin: 80px 0
+
+		.section-header
+			margin-bottom: 35px
+
+		.cybersecurity__items
+			display: flex
+			flex-direction: column
+
+		&__item
+			display: flex
+			position: relative
+			justify-content: space-between
+			padding: 10px 15px 10px
+			margin-bottom: 20px
+			box-shadow: 0px 12px 24px $color-box-shadow
+			border-radius: 5px
+			border-left: 5px solid $color-accent
+
+			&-header
+			font-size: $font-size-common-text
+			line-height: 24px
+			letter-spacing: 0px
+
+			&-text
+				text-align: left
+
+			&-img
+				display: flex
+				align-items: center
+				margin: 0 15px
+
+				img
+					width: 58px
+					height: auto
+
+		&__tip
+			position: absolute
+			bottom: 15px
+			right: 15px
+
+			&-img
+				width: 19px
+				height: 19px
+				
+			&:hover
+
+				&::after
+					content: attr(data-title)
+					position: absolute
+					width: max-content
+					top: -50px
+					left: -250px
+					z-index: 5
+					font-size: $font-size-menu-text
+					color: $color-tip-text
+					background-color: $color-white
+					border: 1px solid $color-disabled-text
+					border-radius: 7px
+					padding: 8px 3px
+
+		.more-tips-btn
+			@include btnPaddingX(65px)
+			display: block
+			margin: 20px auto 0
+
+			&:hover
+				color: $color-accent
+				border-color: $color-accent
+				background-color: $color-white
+
+	.problems
+		@include problems-bg-gradient
+		padding: 40px 0 350px
+
+		&__slider-container
+			padding-top: 70px
+
+			.slick-arrow
+				display: none
+
+			.slick-dots
+				display: flex
+				justify-content: center
+				align-items: center
+				position: absolute
+				margin: 0 auto
+				top: 0
+				left: 50%
+				transform: translateX(-50%)
+
+				li
+					list-style: none
+
+					button
+						display: block
+						position: relative
+						font-size: 0
+						width: 19px
+						height: 19px
+						border-radius: 50%
+						background-color: transparent
+						border: none
+						outline: none
+
+						&::before
+							content: ''
+							position: absolute
+							background-color: $color-accent
+							width: 4px
+							height: 4px
+							border-radius: 50%
+							top: 50%
+							left: 50%
+							transform: translate(-50%, -50%)
+
+						&:hover
+							cursor: pointer
+
+							&::after
+								content: ''
+								position: absolute
+								top: 50%
+								left: 50%
+								transform: translate(-50%, -50%)
+								background-color: transparent
+								width: 19px
+								height: 19px
+								border: 2px solid $color-accent
+								border-radius: 50%
+
+		&__slide
+			overflow: hidden
+
+			.slide-img
+				padding: 0 40px
+				margin-bottom: 50px
+
+				img
+					max-width: 100%
+					margin: 0 auto
+
+			.slide-info
+
+				.slide-header
+					font-family: acme, sans-serif
+					font-size: $font-size-slide-header-mobile
+					font-weight: 400
+					line-height: 24px
+					letter-spacing: 2px
+					text-align: left
+					text-transform: uppercase
+					margin-bottom: 10px
+
+				.slide-text
+					margin-bottom: 30px
+
+				.slide-btn
+					display: block
+					@include btnPaddingX(54px)
+					margin: 0 auto
+
+					&:hover
+						@include primaryBtnHover
+
+	.plans
+		position: relative
+		top: -250px
+
+		.section-header
+			text-align: center
+
+		&__slider-container
+
+			.slick-slide
+				margin-right: 13px
+				width: max-content !important
+
+		&__slide
+			padding: 35px 20px
+			border-radius: 5px
+			background-color: $color-white
+			box-shadow: 0px 12px 24px 0px rgba(229, 229, 229, 1)
+			max-width: 260px
+			transition: $transition-time
+
+			&:hover
+				@include slide-hover-bg-gradient
+				transform: scale(1.1)
+
+				.plans__slide-header, .plans__slide-list_item
+					color: $color-white
+
+		&__slide-header
+			color: $color-accent
+			font-family: acme, sans-serif
+			font-size: $font-size-slide-header
+			font-weight: 400
+			line-height: 24px
+			letter-spacing: 2.25px
+			text-align: center
+			text-transform: uppercase
+			margin-bottom: 30px
+
+		&__slide-list
+
+		&__slide-list_item
+			display: flex
+			color: $color-secondary-text
+			padding-top: 10px
+			margin-bottom: 15px
+			border-top: 2px solid $color-footer-bg
+
+			&-img
+				margin-right: 10px
+
+			&.disabled
+				color: $color-disabled-text
+
+		&__slide-btn
+			display: block
+			margin: 0 auto
+			margin-top: 45px
+			@include btnPaddingX(40px)
+			background-color: $color-white
+			color: $color-accent
+
+			&:hover
+				@include secondaryBtnHover
+
+	.reviews
+		position: relative
+		top: -150px
+
+		&__slider-container
+
+			.slick-dots
+				margin-top: 50px
+				position: relative
+				display: flex
+				justify-content: space-between
+				width: 100%
+
+				&::after
+					content: ''
+					position: absolute
+					width: 100%
+					height: 2px
+					background-color: $color-disabled-text
+					border-radius: 4px
+					bottom: -15px
+
+				li
+					list-style: none
+					padding: 0 3px
+					width: 50px
+
+					button
+						position: relative
+						font-size: 0
+						height: 30px
+						width: 100%
+						display: block
+						border: none
+						outline: none
+
+						&:hover
+							cursor: pointer
+
+					&:nth-child(1)
+
+						button
+							background: url('../img/TuskVentures.png') center/contain
+							background-repeat: no-repeat
+
+					&:nth-child(2)
+
+						button
+							background: url('../img/LMS.png') center/contain
+							background-repeat: no-repeat
+
+					&:nth-child(3)
+
+						button
+							background: url('../img/calor.png') center/contain
+							background-repeat: no-repeat
+
+					&:nth-child(4)
+
+						button
+							background: url('../img/vayner.png') center/contain
+							background-repeat: no-repeat
+
+					&:nth-child(5)
+
+						button
+							background: url('../img/baron.png') center/contain
+							background-repeat: no-repeat
+
+					&.slick-active
+						position: relative
+
+						&::after
+							content: ''
+							position: absolute
+							z-index: 5
+							width: 100%
+							height: 2px
+							left: 0
+							bottom: -15px
+							background-color: $color-accent
+							border-radius: 4px
+
+		&__slide
+
+			.slide-header
+				text-align: center
+				margin-bottom: 60px
+
+				img
+					max-width: 210px
+					margin: 0 auto
+
+			.slide-quote
+				color: $color-secondary-text
+
+				.quote-text
+					font-size: $font-size-common-text
+					text-align: center
+					margin-bottom: 5px
+
+				.quote-author
+					font-family: acme, sans-serif
+					font-size: $font-size-small-text
+					letter-spacing: 2px
+					text-align: center
+					text-transform: uppercase
+
+	.get-in-touch
+
+		&__banner
+
+		&__img
+			position: relative
+			width: calc(100% + 60px)
+			left: -30px
+			z-index: 1
+
+			img
+				max-width: 100%
+
+		&__text
+			margin-bottom: 10px
+
+		&__forms
+			position: relative
+			top: -75px
+			@include forms-bg-gradient
+			padding: 30px
+			border-radius: 5px
+			z-index: 2
+
+			input
+				width: 100%
+				background-color: transparent
+				color: $color-white
+				font-family: acme, sans-serif
+				font-size: $font-size-small-text
+				line-height: 24px
+				letter-spacing: 2px
+				text-transform: uppercase
+				outline: none
+				border: none
+				border-bottom: 2px solid $color-input-border
+				padding: 5px 0
+				margin-bottom: 14px
+
+				&::placeholder
+					color: $color-white
+
+				&.msp-input
+					margin-top: 40px
+
+			.submit-btn
+				display: flex
+				color: $color-white
+
+				span
+					margin-left: 30px
+
+				button
+					display: block
+					margin-left: auto
+					width: 25px
+					height: 25px
+					background-color: transparent
+					border: none
+					outline: none
+					border-radius: 50%
+					background: url('../img/arrow-right-wight.png') center
+
+					&:hover
+						cursor: pointer
+	
+.main-footer
+	color: $color-secondary-text
+	background-color: $color-footer-bg
+
+	.phone-number
+		font-size: $font-size-common-text
+		font-style: normal
+		font-weight: 400
+		line-height: 36px
+		color: $color-secondary-text
+
+		&:hover
+			color: $color-accent
+
+	.footer-blocks
+		padding: 25px 0
+
+		.footer-block
+			position: relative
+			margin-bottom: 15px
+
+			&:not(.footer-links)::before
+				position: absolute
+				content: ''
+				top: 0
+				left: -30px
+				width: calc(100% + 60px)
+				height: 2px
+				background-color: $color-accent
+
+			a.view-map
+				color: $color-accent
+				font-family: aclonica, sans-serif
+				font-size: $font-size-menu-text
+				line-height: 20px
+				letter-spacing: 0px
+
+				&:hover
+					color: $color-secondary-text
+
+			p
+				font-family: aclonica, sans-serif
+				font-size: $font-size-menu-text
+				line-height: 20px
+				letter-spacing: 0px
+
+			.main-phone
+				font-family: acme, sans-serif
+				line-height: 24px
+				letter-spacing: 2px
+				text-transform: uppercase
+
+			.city-title
+				font-family: aclonica, sans-serif
+				font-size: $font-size-common-text
+				font-style: normal
+				font-weight: 400
+				line-height: 36px
+				letter-spacing: 0px
+
+			.footer-nav
+				display: flex
+				flex-direction: column
+
+				li
+					margin-bottom: 10px
+
+					a:not(.phone-number)
+						color: $color-secondary-text
+						font-family: acme, sans-serif
+						font-size: $font-size-menu-text
+						line-height: 24px
+						letter-spacing: 2px
+						text-align: left
+						text-transform: uppercase
+
+						&:hover
+							color: $color-accent
+
+	.footer-socials
+		padding-top: 20px
+		position: relative
+
+		&::before
+			content: ''
+			height: 1px
+			width: calc(100% + 60px)
+			position: absolute
+			top: 0
+			left: -30px
+			background-color: $color-footer-line
+
+		ul
+			display: flex
+			justify-content: space-around
+
+		.footer-logo
+			text-align: center
+
+			img
+				max-width: 105px
+
+
+
+@media screen and (min-width: 768px)
+
+	.hero
+
+		.container
+
+		&__tabs
+
+			&.sticky
+				left: 50%
+				transform: translate(-50%, 0)
+
+	.main 
+
+		.cybersecurity
+			margin-top: 80px
+
+			.section-header
+				margin-bottom: 35px
+
+			.cybersecurity__items
+				display: flex
+				flex-wrap: wrap
+				flex-direction: row
+				justify-content: center
+
+				.cybersecurity__item
+					max-width: 45%
+					margin: 0 15px 30px
+
+			&__tip
+
+				&-img
+						width: 22px
+						height: 22px
+
+		.about
+
+			&__img
+				margin: 40px auto 40px
+				max-width: 60%
+
+
+@media screen and (min-width: 992px)
+
+	.main-header
+
+		&__logo
+			display: flex
+			align-items: center
+
+		.hamburger-menu
+			display: none
+
+		.desktop-menu
+			display: flex
+
+			.menu__nav
+
+				ul
+					height: 100%
+					display: flex
+					align-items: center
+
+			.menu__item
+				position: relative
+				color: $color-white
+				font-family: Acme, sans-serif
+				font-size: $font-size-menu-text
+				letter-spacing: 2px
+				text-align: center
+				padding: 5px 0
+				margin-right: 20px
+
+			.menu__item:hover::after, .menu__item.active::after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: calc(50% - 20px)
+				width: 40px
+				height: 2px
+				background-color: $color-white
+
+			.menu__buttons
+
+				.btn
+					color: $color-white
+					border-color: $color-white
+					box-shadow: none
+
+					&:hover
+						cursor: pointer
+						color: $color-white
+						background-color: $color-accent
+						border-color: $color-accent
+
+					&:first-child
+						margin-right: 0
+
+				.wide-btn
+					@include btnPaddingX(54px)
+
+				.narrow-btn
+					@include btnPaddingX(22px)
+
+	.hero
+
+		&__credo
+			flex-direction: row
+			justify-content: space-between
+			padding: 0 20px
+
+		.credo__phrase
+			max-width: 670px
+
+			p
+				font-size: 20px
+				line-height: 26px
+
+				&::before
+					position: absolute
+					top: 5px
+					left: 0
+					content: ''
+					width: 2px
+					height: 75%
+					background-color: $color-white
+
+		&__slogan
+			padding: 200px 30px 100px
+			font-family: actor, sans-serif
+			font-size: $font-size-hero-slogan
+			line-height: 130px
+
+	.main
+
+		.section-header
+			font-size: $font-size-section-header
+			line-height: 54px
+
+		.about
+
+			.container
+					grid-template-columns: 600px auto
+					grid-template-rows: repeat(3, 1fr)
+
+			&__img
+				margin: 0
+				order: 0
+				grid-area: 1 / 1 / 4 / 2
+
+				img
+
+			&__info
+				margin-left: 20px
+				order: 1
+				grid-area: 1 / 2 / 3 / 3
+				display: flex
+				flex-direction: column
+				justify-content: center
+
+			&__text
+				font-family: aclonica, sans-serif
+				font-size: $font-size-body-default
+				line-height: 24px
+				letter-spacing: 0px
+				text-align: left
+
+			&__buttons
+				text-align: center
+				order: 1
+				grid-area: 3 / 2 / 4 / 3
+
+		.cybersecurity
+
+			&__items
+				display: flex
+				flex-wrap: wrap
+				flex-direction: row
+				justify-content: center
+
+			&__item
+				max-width: 40%
+				padding: 34px 18px 16px 60px
+
+			&__item-header
+				font-size: $font-size-section-header-mobile
+				line-height: 36px
+				margin-bottom: 16px
+
+			&__item-img
+
+				img
+					width: 68px
+
+			.more-tips-btn
+				@include btnPaddingX(75px)
+
+		.problems
+
+			.section-header
+				margin: 0
+
+			&__slider-container
+				padding-top: 70px
+
+				.problems__slide
+					display: flex !important
+					position: relative
+
+				.slick-dots
+					height: 100%
+					flex-direction: column
+					left: 100%
+					top: 50%
+					transform: translateY(-50%)
+
+					li
+
+						button
+							width: 24px
+							height: 24px
+							margin-bottom: 10px
+
+							&::before
+								width: 6px
+								height: 6px
+
+							&:hover
+								cursor: pointer
+
+								&::after
+									width: 24px
+									height: 24px
+									border: 3px solid $color-accent
+
+				.slide-img
+					padding: 0 150px
+					order: 1
+
+					img
+						max-width: 350px
+
+				.slide-info
+					order: 0
+					display: flex
+					flex-direction: column
+					justify-content: center
+
+					.slide-header
+						font-size: $font-size-slide-header
+						margin-bottom: 20px
+
+					.slide-text
+						font-size: $font-size-common-text
+						margin-bottom: 60px
+
+					.slide-btn
+						width: max-content
+						margin: 0
+
+		.plans
+
+			&__slider-container
+				display: flex
+				justify-content: space-between
+
+			&__slide-header
+				font-size: $font-size-slide-header
+				margin-bottom: 30px
+
+
+		.reviews
+
+			&__slider-container
+
+				.slick-dots
+
+					li
+						width: 120px
+
+						button
+							height: 70px
+
+				.reviews__slide
+					display: flex !important
+					justify-content: space-between
+					align-items: center
+
+					.slide-header
+						margin: 0
+						margin-right: 150px
+
+						img
+							max-width: 300px
+
+					.quote-text
+						font-size: $font-size-section-header-mobile
+						line-height: 36px
+
+					.quote-author
+						font-size: $font-size-menu-text
+						line-height: 24px
+						text-align: right
+
+		.get-in-touch
+			position: relative
+			margin-bottom: 40px
+
+			&__banner
+				display: flex
+				justify-content: space-between
+
+			&__info
+				order: 1
+				max-width: 50%
+
+			&__img
+				order: 0
+				position: relative
+				width: calc(50% + 30px)
+				left: -30px
+
+				img
+					max-width: 100%
+
+			&__text
+				margin-bottom: 10px
+				font-size: $font-size-common-text
+
+			&__forms
+				max-width: 1030px
+				margin: 0 auto
+				top: -35px
+				padding: 30px 50px
+				display: flex
+				justify-content: space-between
+
+				form
+					width: 40%
+
+				input
+					font-size: $font-size-small-text
+					line-height: 24px
+					letter-spacing: 2px
+					padding: 5px 0
+					margin-bottom: 14px
+
+					&.msp-input
+						margin-top: 0
+
+				.submit-btn
+					display: flex
+					color: $color-white
+
+					span
+						display: flex
+						align-items: center
+						margin-left: 40px
+						font-size: $font-size-section-header-mobile
+
+					button
+						width: 35px
+						height: 35px
+						background-repeat: no-repeat
+
+	.main-footer
+
+		.footer-blocks
+			display: grid
+			grid-template-columns: repeat(4, 1fr)
+
+			.footer-links
+
+				nav
+
+					li
+						margin-bottom: 25px
+
+			.footer-contacts
+				grid-column: 2 / 5
+
+				.footer-block
+					display: flex
+					justify-content: space-between
+					padding: 10px 0 40px 0
+
+					&::before
+						left: 0
+						width: 100%
+
+					.city-title
+						font-size: 20px
+						line-height: 36px
+						flex-basis: 160px
+
+					p
+						font-size: $font-size-common-text
+
+					a
+						font-size: $font-size-common-text
+						line-height: 24px
+
+					.address
+						flex-basis: 220px
+
+		.footer-socials
+			display: flex
+			justify-content: space-between
+			padding: 28px 0
+
+			ul
+
+				li
+					margin-right: 52px
+
+			&::before
+				width: 100%
+				left: 0
+
+			.footer-logo
+
+				img
+					height: auto
+					max-width: 170px
+
+@media screen and (min-width: 1200px)
+
+	.main-header
+
+		.desktop-menu
+
+			.menu__buttons
+
+				.btn
+
+					&:first-child
+						margin-right: 20px
+
+	.hero
+
+		&__credo
+			flex-direction: row
+			justify-content: space-between
+			padding: 0 80px
+
+	.main
+
+		.about
+
+			&__img
+
+			&__info
+				margin-left: 100px
+
+			&__text
+				font-family: aclonica, sans-serif
+				font-size: $font-size-body-default
+				line-height: 24px
+				letter-spacing: 0px
+				text-align: left
+
+			&__buttons
+				margin-left: 100px
+				text-align: center
+				order: 1
+				grid-area: 3 / 2 / 4 / 3
+
+		.cybersecurity
+
+			&__items
+
+			&__item
+				width: 500px
+
+			&__item-img
+
+				img
+					width: 90px
+
+		.plans
+
+			&__slider-container
+
+				.slick-track
+					display: flex
+					justify-content: space-around
+
+				.slick-slide
+
+			.plans__slide
+				padding: 40px
+				width: 300px
+				max-width: 100%
+
+			&__slide-list_item
+				display: flex
+				color: $color-secondary-text
+				padding-top: 10px
+				margin-bottom: 15px
+				border-top: 2px solid $color-footer-bg
+
+				&-img
+					margin-right: 10px
+
+				&.disabled
+					color: $color-disabled-text
+
+			&__slide-btn
+				margin-top: 45px
+				@include btnPaddingX(40px)
+
+		.get-in-touch
+
+			.container
+				max-width: 100%
+				padding: 0
+
+			&__banner
+				justify-content: flex-start
+
+			&__info
+				max-width: 470px
+				margin-left: 30px
+
+			&__img
+				position: relative
+				left: 0px
+
+				img
+					max-width: 100%
+
+			&__text
+				margin-bottom: 10px
+
+			&__forms
+				max-width: 1030px
+				margin: 0 auto
+				top: -50px
+				padding: 30px 50px
+				display: flex
+				justify-content: space-between
+
+				form
+					width: 40%
+
+				input
+					font-size: $font-size-small-text
+					line-height: 24px
+					letter-spacing: 2px
+					padding: 5px 0
+					margin-bottom: 14px
+
+	.main-footer
+
+		.footer-blocks
+
+			.footer-contacts
+
+				.footer-block
+
+					.city-title
+						font-size: $font-size-section-header-mobile
+						line-height: 36px
+						flex-basis: 210px
+
+					p
+						font-size: $font-size-common-text
+
+					a
+						font-size: $font-size-common-text
+						line-height: 24px
+
+					.address
+						flex-basis: 220px
+
+@media screen and (min-width: 1400px)
+
+	.main
+
+		.about
+
+			&__buttons
+
+				.btn:first-child
+					margin-right: 50px
+
+		.cybersecurity
+
+			&__tip
+						
+					&:hover
+
+						&::after
+							left: -140px
+
+		.plans
+
+			&__slider-container
+
+				.plans__slide
+					padding: 40px
+					width: 330px
