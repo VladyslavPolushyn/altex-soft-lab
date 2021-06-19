@@ -29,10 +29,10 @@ function renderCoins(num) {
 			for (let k = 1; k <= num; k++) {
 				fillCoinsArea(row);
 			}
-			output.innerHTML = `Output: ${i-1}`;
+			output.innerHTML = i - 1;
 
 		}else {
-			
+
 			for (let k = 1; k <= i; k++) {
 				fillCoinsArea(row);
 			}
