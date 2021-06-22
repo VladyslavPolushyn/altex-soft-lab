@@ -1,0 +1,96 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	background-color: #F2F2F2;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+section {
+	padding: 20px;
+}
+
+button {
+	text-transform: uppercase;
+	font-weight: bold;
+	background-color: #A2B9EB;
+	margin: 0 10px;
+	padding: 20px 30px;
+	outline: none;
+	border-radius: 5px;
+	transition:  .2s;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: #9A9CE9;
+}
+
+.controll-section {
+	background-color: #AEEEE0;
+}
+
+.controlls-buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.output h1 {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.domino-row {
+	display: flex;
+	justify-content: space-around;
+}
+
+.tops .domino {
+	border-radius: 10px 10px 0 0;
+}
+
+.bottoms .domino {
+	border-radius: 0 0 10px 10px;
+}
+
+.domino {
+	position: relative;
+	height: 150px;
+	width: 150px;
+	background-color: #A3DCEF;
+	padding: 15px;
+	margin: 5px 15px;
+}
+
+.dot-1 {
+	background: url('img/dot-1.png'), no-repeat, center/cover, #A3DCEF;
+}
+
+.dot-2 {
+	background: url('img/dot-2.png'), no-repeat, center/cover, #A3DCEF;
+}
+
+.dot-3 {
+	background: url('img/dot-3.png'), no-repeat, center/cover, #A3DCEF;
+}
+
+.dot-4 {
+	background: url('img/dot-4.png'), no-repeat, center/cover, #A3DCEF;
+}
+
+.dot-5 {
+	background: url('img/dot-5.png'), no-repeat, center/cover, #A3DCEF;
+}
+
+.dot-6 {
+	background: url('img/dot-6.png'), no-repeat, center/cover, #A3DCEF;
+}
