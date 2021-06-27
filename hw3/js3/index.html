@@ -7,8 +7,27 @@
 	<title>JS Task 3</title>
 </head>
 <body>
-		
 
+	<section class="atm">
+		<div class="container">
+			<div class="info-screen">
+				<h1 class="balance-info">Balance: <span id="balance"></span> UAH</h1>
+				<div class="alert-info" id="alert-field"></div>
+			</div>
+			<div class="controlls">
+				<button class="withdraw-btn" value="1000">1000 UAH</button>
+				<button class="withdraw-btn" value="500">500 UAH</button>
+				<button class="withdraw-btn" value="200">200 UAH</button>
+				<button class="withdraw-btn" value="100">100 UAH</button>
+				<button class="withdraw-btn" value="50">50 UAH</button>
+				<div class="withdraw-input">
+					<input id="withdraw-input" class="withdraw-input" type="number" min="0" placeholder="Other sum">
+					<button class="withdraw-btn manual-withdraw-btn" id="manual-withdraw-btn">withdraw</button>
+				</div>
+			</div>
+		</div>
+	</section>
+		
 	<script src="main.js"></script>
 </body>
 </html>

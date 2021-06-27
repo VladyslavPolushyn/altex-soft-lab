@@ -1,0 +1,72 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	padding: 25px;
+	font-family: Tahoma, sans-serif;
+	font-size: 20px;
+}
+
+.container {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	max-width: 576px;
+	height: 80vh;
+	background-color: #689997;
+}
+
+.info-screen, .controlls {
+	height: 50%;
+	margin: 20px;
+}
+
+.info-screen {
+	background-color: #FFFCFA;
+}
+
+.balance-info {
+	text-align: center;
+	margin: 10px;
+}
+
+.alert-info {
+	text-align: center;
+}
+
+.controlls {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.withdraw-btn, .withdraw-input {
+	width: 40%;
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 16px;
+	transition: .2s;
+}
+
+.withdraw-input {
+	display: flex;
+	justify-content: space-between;
+}
+
+.withdraw-input input {
+	padding: 0 10px;
+	height: 100%;
+	width: 60%;
+}
+
+.withdraw-input .manual-withdraw-btn {
+	height: 100%;
+	width: 40%;
+}
+
+.withdraw-btn:hover {
+	cursor: pointer;
+}
