@@ -15,13 +15,35 @@ body {
 	display: flex;
 	flex-direction: column;
 	max-width: 576px;
-	height: 80vh;
+	height: 90vh;
 	background-color: #689997;
 }
 
 .info-screen, .controlls {
-	height: 50%;
+	height: 40%;
 	margin: 20px;
+}
+
+.bill-acceptor {
+	height: 20%;
+}
+
+.acceptor-field {
+	position: relative;
+	width: 70%;
+	margin: 0 auto;
+	border: 10px solid #2A333A;
+}
+
+.money {
+	position: absolute;
+	height: 100px;
+	width: 100%;
+	background: url('money.png') no-repeat 50% 0%;
+}
+
+.hidden {
+	visibility: hidden;
 }
 
 .info-screen {
