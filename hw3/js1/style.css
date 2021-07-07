@@ -13,7 +13,6 @@ body {
 }
 
 button {
-	color:  ;
 	padding: 10px 20px;
 	border-radius: 5px;
 	background-color: #B5B6A4;
@@ -58,7 +57,7 @@ button:hover {
 	background: url('https://upload.wikimedia.org/wikipedia/en/5/53/Shiba_Inu_coin_logo.png') no-repeat center/cover;
 }
 
-.danger-input {
+.invalid-input {
 	border-color: red;
 }
 

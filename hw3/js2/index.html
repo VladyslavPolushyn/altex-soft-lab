@@ -8,7 +8,7 @@
 </head>
 <body>
 	
-	<section class="controll-section">
+	<div class="controll-section">
 		<div class="container">
 			<div class="controlls-buttons">
 				<button id="set-dominoes-btn">generate</button>
@@ -18,28 +18,14 @@
 				<h1>Output: <span id="output-text"></span></h1>
 			</div>
 		</div>
-	</section>
+	</div>
 
-	<section class="domino-section">
+	<div class="domino-section">
 		<div class="container">
-			<div class="domino-row tops">
-				<div class="domino"></div>
-				<div class="domino"></div>
-				<div class="domino"></div>
-				<div class="domino"></div>
-				<div class="domino"></div>
-				<div class="domino"></div>
-			</div>
-			<div class="domino-row bottoms">
-				<div class="domino"></div>
-				<div class="domino"></div>
-				<div class="domino"></div>
-				<div class="domino"></div>
-				<div class="domino"></div>
-				<div class="domino"></div>
-			</div>
+			<div class="domino-row tops" id="tops"></div>
+			<div class="domino-row bottoms" id="bottoms"></div>
 		</div>
-	</section>
+	</div>
 
 	<script src="main.js"></script>
 </body>
