@@ -30,7 +30,7 @@ for (let i = 0; i < bills.length; i++) {
 	atmMax += bills[i][0] * bills[i][1];
 }
 
-balanceField.innerHTML = balance;
+balanceField.innerHTML = atmMax;
 
 function withdraw(sumValue) {
 
@@ -69,7 +69,7 @@ function withdraw(sumValue) {
 		}
 
 		moneyImg.classList.remove('hidden');
-		balanceField.innerHTML = balance;
+		balanceField.innerHTML = atmMax;
 
 	} else if (sum && sum > balance) {
 		alertField.innerHTML = `<p>Your balance is less then ${sum} UAH!</p>`;
