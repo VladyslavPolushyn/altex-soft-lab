@@ -11,7 +11,7 @@ withdrawBtns.forEach(elem => {
 
 manualWithdrawBtn.addEventListener('click', () => withdraw(withdrawInput.value));
 
-let balance = 16273;
+let balance = 6000;
 
 // I didn't use an object and "for..in" because indexing is important for my code
 let bills = [
@@ -59,7 +59,6 @@ function withdraw(sumValue) {
 			}
 
 			bills[i][1] -= quantity;
-
 			sumValue -= bills[i][0] * quantity;
 			balance -= bills[i][0] * quantity;
 
