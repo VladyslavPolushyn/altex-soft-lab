@@ -61,6 +61,7 @@ function withdraw(sumValue) {
 			bills[i][1] -= quantity;
 			sumValue -= bills[i][0] * quantity;
 			balance -= bills[i][0] * quantity;
+			atmMax -= bills[i][0] * quantity;
 
 			if (quantity > 0) {
 				alertField.innerHTML += `<p>${bills[i][0]} UAH x ${quantity}</p>`;
