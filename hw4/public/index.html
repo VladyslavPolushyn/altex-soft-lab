@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<title>HW 4</title>
+</head>
+<body id="body">
+
+	<header class="main-header">
+		<div class="container">
+			<div class="logo">Logo Placeholder</div>
+			<div class="log-in">
+				<span>Welcome, user</span>
+				<a href="#">Log Out</a>
+			</div>
+		</div>
+	</header>
+
+	<div class="page-name">
+		<div class="container">
+			<img src="assets/img/users.png" alt="users icon" class="users-icon"> Customers
+		</div>
+	</div>
+
+	<div class="main-table">
+		<div class="container">
+			<h4>Filters</h4>
+			<div class="table-filter">
+				<div class="filter">
+					<input type="text" class="search-input" placeholder="Company Name*" data-search="company name">
+					<input type="text" class="search-input" placeholder="Contact Name*" data-search="contact name">
+					<input type="text" class="search-input" placeholder="Address*" data-search="address">
+				</div>
+				<div class="add-item">
+					<button id="add-btn" class="add-btn">+</button>
+				</div>
+			</div>
+			<table class="table">
+				<thead class="table-header">
+					<tr>
+						<th>
+							<input type="checkbox" id="select-all" name="select-all" class="checkbox">
+							<label for="select-all"></label>
+	       		</th>
+						<th>Company Name</th>
+						<th>Contact Name</th>
+						<th>Address</th>
+						<th>City</th>
+						<th>Country</th>
+					</tr>
+				</thead>
+				<tbody class="table-body" id="table-body">
+				</tbody>
+			</table>	
+		</div>
+	</div>
+	
+	<div class="modal" id="modal">
+		<div class="container">
+			<div class="modal-header">
+				<h3>Company</h3>
+				<button id="close-modal-btn" class="close-modal-btn">x</button>
+			</div>
+			<form id="company-form" class="company-form">
+				<p>
+					Company Name
+					<input id="company-name-input" class="form-input" type="text" placeholder="Company Name*">
+				</p>
+				<p>
+					Contact Name
+					<input id="contact-name-input" class="form-input" type="text" placeholder="Contact Name*">
+				</p>
+				<p>
+					Address
+					<input id="address-input" class="form-input" type="text" placeholder="Address*">
+				</p>
+				<p>
+					City
+					<input id="city-input" class="form-input" type="text" placeholder="City*">
+				</p>
+				<p>
+					Country
+					<input id="country-input" class="form-input" type="text" placeholder="Country*">
+				</p>
+				<p>
+					<button id="submit-add-btn" class="submit-btn">Add</button>
+					<button id="submit-edit-btn" class="submit-btn">Edit</button>
+				</p>
+			</form>
+		</div>
+	</div>
+
+
+	<script src="assets/js/main.js" type="module"></script>
+</body>
+</html>
