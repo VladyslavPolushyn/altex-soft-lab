@@ -190,11 +190,11 @@ input::placeholder {
 	transform: scale(.95);
 }
 
-.edit-btn:hover, .delete-btn:hover {
+.controll-btn:not([disabled]):hover {
 	transform: scale(1.3);
 }
 
-.edit-btn:active, .delete-btn:active {
+.controll-btn:not([disabled]):active {
 	transform: scale(.98);
 }
 

@@ -44,7 +44,7 @@ function renderTable(data) {
 		tableBody.insertAdjacentHTML('beforeend', `
 			<tr>
 				<td>
-					<input type="checkbox" id="${value.id}" name="${value.company}" class="checkbox">
+					<input type="checkbox" id="${value.id}" name="${value.company}" class="checkbox single-checkbox">
 					<label for="${value.id}"></label>
 				</td>
 	      <td>${value.company}</td>
@@ -53,8 +53,8 @@ function renderTable(data) {
 	      <td>${value.city}</td>
 	      <td>${value.country}</td>
 	      <td class="controlls">
-	      	<button class="edit-btn" data-id="${value.id}"></button>
-	      	<button class="delete-btn" data-id="${value.id}"></button>
+	      	<button class="controll-btn edit-btn" data-id="${value.id}" disabled></button>
+	      	<button class="controll-btn delete-btn" data-id="${value.id}" disabled></button>
 	      </td>
 	    </tr>	
 		`);
@@ -64,12 +64,21 @@ function renderTable(data) {
 		elem.addEventListener('input', search);
 	});
 
-	checkboxes = document.querySelectorAll('.table-body .checkbox');
+	checkboxes = document.querySelectorAll('.table-body .single-checkbox');
 	editBtnArr = document.querySelectorAll('.table-body .edit-btn');
 	deleteBtnArr = document.querySelectorAll('.table-body .delete-btn');
 
+	checkboxes.forEach(elem => {
+		elem.addEventListener('change', () => {
+			toggleControllsButtons(elem);
+		});
+	});
+
 	deleteBtnArr.forEach(elem => {
-		elem.addEventListener('click', () => deleteUser(elem.dataset.id));
+		elem.addEventListener('click', () => {
+			const selectedUsers = [...checkboxes].filter(item => item.checked);
+			deleteUsers(selectedUsers);
+		});
 	});
 
 	editBtnArr.forEach(elem => {
@@ -88,6 +97,26 @@ function renderTable(data) {
 		closeModal();
 	});
 
+	selectAllBtn.addEventListener('change', toggleAllCheckboxes);
+
+}
+
+// !TODO
+// function toggleAllCheckboxes() {
+// 	if (selectAllBtn.checked) {
+// 		checkboxes.forEach(item => item.checked = true);
+// 	}else {
+// 		checkboxes.forEach(item => item.checked = false);
+// 	}
+// }
+
+function toggleControllsButtons(elem) {
+	const controllButtons = document.querySelectorAll(`.controll-btn[data-id="${elem.id}"]`);
+	if (elem.checked) {
+		controllButtons.forEach(item => item.removeAttribute('disabled'));
+	}else {
+		controllButtons.forEach(item => item.setAttribute('disabled', 'disabled'));
+	}
 }
 
 function addUser(body) {
@@ -95,8 +124,8 @@ function addUser(body) {
 	getUsers();
 }
 
-function deleteUser(id) {
-	dataFetch('DELETE', `users/${id}`);
+function deleteUsers(users) {
+	users.forEach(item => dataFetch('DELETE', `users/${item.id}`));
 	getUsers();
 }
 
