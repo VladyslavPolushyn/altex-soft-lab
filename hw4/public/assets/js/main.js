@@ -97,7 +97,8 @@ function renderTable(data) {
 		closeModal();
 	});
 
-	selectAllBtn.addEventListener('change', toggleAllCheckboxes);
+	// !TODO
+	// selectAllBtn.addEventListener('change', toggleAllCheckboxes);
 
 }
 
