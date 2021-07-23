@@ -85,11 +85,11 @@ button:hover {
 	padding: 0 20px;
 }
 
-.main-header {
+.header {
 	padding: 20px 0;
 }
 
-.main-header .container {
+.header .container {
 	display: flex;
 	justify-content: space-between;
 }
@@ -99,7 +99,7 @@ button:hover {
 	color: #C8C8C8;
 }
 
-.page-name .container {
+.logo-wrapper .container {
 	color: #fff;
 	display: flex;
 	background-color: #3F51B5;
@@ -255,7 +255,7 @@ button:hover {
 	align-items: center;
 }
 
-.company-form p {
+.company-form div {
 	color: #fff;
 	width: 100%;
 	margin-bottom: 10px;

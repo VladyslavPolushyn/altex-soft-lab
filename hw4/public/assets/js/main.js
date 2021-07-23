@@ -17,6 +17,7 @@ let usersData;
 let checkboxes;
 let deleteBtnArr;
 let editBtnArr;
+let addedUserId = 0;
 
 const dataFetch = async (method = 'GET', url, body) => {
 	try {
@@ -97,25 +98,13 @@ function renderTable(data) {
 		closeModal();
 	});
 
-	// !TODO
-	// selectAllBtn.addEventListener('change', toggleAllCheckboxes);
-
 }
-
-// !TODO
-// function toggleAllCheckboxes() {
-// 	if (selectAllBtn.checked) {
-// 		checkboxes.forEach(item => item.checked = true);
-// 	}else {
-// 		checkboxes.forEach(item => item.checked = false);
-// 	}
-// }
 
 function toggleControllsButtons(elem) {
 	const controllButtons = document.querySelectorAll(`.controll-btn[data-id="${elem.id}"]`);
 	if (elem.checked) {
 		controllButtons.forEach(item => item.removeAttribute('disabled'));
-	}else {
+	} else {
 		controllButtons.forEach(item => item.setAttribute('disabled', 'disabled'));
 	}
 }
@@ -142,22 +131,20 @@ function getUsers() {
 	return usersData;
 }
 
-function getUser(id) {
+function getUserById(id) {
 	return dataFetch('GET', `users/${id}`)
 }
 
 function openModal() {
-	clearTheForm();
+	clearForm();
 	modal.classList.add('open');
 	body.classList.add('hidden');
 }
 
 function setEditModal(id) {
-
 	submitAddBtn.classList.add('no-display');
 	let user;
-
-	getUser(id)
+	getUserById(id)
 		.then(data => user = data)
 		.then(() => {
 			companyNameInput.value = user.company;
@@ -166,10 +153,8 @@ function setEditModal(id) {
 			cityInput.value = user.city;
 			countryInput.value = user.country;
 		});
-
 	submitEditBtn.dataset.id = id;
 	submitEditBtn.addEventListener('click', submitEdit);
-
 }
 
 function submitEdit(event) {
@@ -205,7 +190,7 @@ function submitAdd(event) {
 	}
 
 	addUser({
-		id: usersData.length + 1,
+		id: ++addedUserId,
 		name: contactNameInput.value,
 		company: companyNameInput.value,
 		address: addressInput.value,
@@ -226,14 +211,13 @@ function closeModal() {
 	}
 }
 
-function clearTheForm() {
+function clearForm() {
 	for (let i = 0; i < formInputs.length; i++) {
 		formInputs[i].value = '';
 	}
 }
 
 function search(event) {
-
 	let text = event.target.value.toLowerCase().trim();
 	let searchType = event.target.dataset.search;
 	const searchMethods = {
@@ -247,9 +231,7 @@ function search(event) {
 			return item.address.toLowerCase().includes(text);
 		}),
 	}
-
 	renderTable(searchMethods[searchType]);
-
 }
 
 function isValidForm() {
@@ -258,7 +240,7 @@ function isValidForm() {
 		if (!formInputs[i].value.trim()) {
       formInputs[i].classList.add('invalid');
       result = false;
-    }else {
+    } else {
     	formInputs[i].classList.remove('invalid');
     }
 	}
