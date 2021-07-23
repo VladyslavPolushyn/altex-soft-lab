@@ -1,7 +1,13 @@
-const tableBody = document.getElementById('table-body');
-const selectAllBtn = document.getElementById('select-all');
-const addBtn = document.getElementById('add-btn');
+const body = document.getElementById('body');
+
+let usersData;
+let checkboxes;
+let deleteBtnArr;
+let editBtnArr;
+let addedUserId = 0;
+
 const modal = document.getElementById('modal');
+const formInputs = document.querySelectorAll('.form-input');
 const closeModalBtn = document.getElementById('close-modal-btn');
 const companyNameInput = document.getElementById('company-name-input');
 const contactNameInput = document.getElementById('contact-name-input');
@@ -10,14 +16,11 @@ const cityInput = document.getElementById('city-input');
 const countryInput = document.getElementById('country-input');
 const submitAddBtn = document.getElementById('submit-add-btn');
 const submitEditBtn = document.getElementById('submit-edit-btn');
-const body = document.getElementById('body');
-const formInputs = document.querySelectorAll('.form-input');
+
+const tableBody = document.getElementById('table-body');
+const selectAllBtn = document.getElementById('select-all');
+const addBtn = document.getElementById('add-btn');
 const searchInputs = document.querySelectorAll('.search-input');
-let usersData;
-let checkboxes;
-let deleteBtnArr;
-let editBtnArr;
-let addedUserId = 0;
 
 const dataFetch = async (method = 'GET', url, body) => {
 	try {
