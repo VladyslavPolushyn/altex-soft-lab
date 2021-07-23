@@ -221,17 +221,15 @@ function search(event) {
 	let text = event.target.value.toLowerCase().trim();
 	let searchType = event.target.dataset.search;
 	const searchMethods = {
-		'company name': usersData.filter(item => {
-			return item.company.toLowerCase().includes(text);
-		}),
-		'contact name': usersData.filter(item => {
-			return item.name.toLowerCase().includes(text);
-		}),
-		'address': usersData.filter(item => {
-			return item.address.toLowerCase().includes(text);
-		}),
+		'company name': getFilteredData(usersData, text),
+		'contact name': getFilteredData(usersData, text),
+		'address': getFilteredData(usersData, text),
 	}
 	renderTable(searchMethods[searchType]);
+}
+
+function getFilteredData(data, text) {
+	return data.filter(item => item.company.toLowerCase().includes(text));
 }
 
 function isValidForm() {
