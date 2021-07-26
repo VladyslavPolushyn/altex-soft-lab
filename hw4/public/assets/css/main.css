@@ -147,6 +147,10 @@ button:hover {
 	padding-right: 20px;
 }
 
+.table tr th:last-child {
+	text-align: right;
+}
+
 .table-header th {
 	font-weight: normal;
 	color: #818181;

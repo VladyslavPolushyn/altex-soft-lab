@@ -2,6 +2,7 @@ const body = document.getElementById('body');
 
 let usersData;
 let checkboxes;
+let numOfSelectedCheckboxes = 0;
 let deleteBtnArr;
 let editBtnArr;
 let addedUserId = 0;
@@ -19,6 +20,7 @@ const submitEditBtn = document.getElementById('submit-edit-btn');
 
 const tableBody = document.getElementById('table-body');
 const selectAllBtn = document.getElementById('select-all');
+const deleteSelectedBtn = document.getElementById('delete-selected-btn');
 const addBtn = document.getElementById('add-btn');
 const searchInputs = document.querySelectorAll('.search-input');
 
@@ -70,11 +72,12 @@ function renderTable(data) {
 
 	checkboxes = document.querySelectorAll('.table-body .single-checkbox');
 	editBtnArr = document.querySelectorAll('.table-body .edit-btn');
-	deleteBtnArr = document.querySelectorAll('.table-body .delete-btn');
+	deleteBtnArr = document.querySelectorAll('.delete-btn');
 
 	checkboxes.forEach(elem => {
 		elem.addEventListener('change', () => {
 			toggleControllsButtons(elem);
+			toggleDeleteSelectedBtn();
 		});
 	});
 
@@ -107,9 +110,23 @@ function toggleControllsButtons(elem) {
 	const controllButtons = document.querySelectorAll(`.controll-btn[data-id="${elem.id}"]`);
 	if (elem.checked) {
 		controllButtons.forEach(item => item.removeAttribute('disabled'));
+		setNumOfSelectedCheckboxes(1);
 	} else {
 		controllButtons.forEach(item => item.setAttribute('disabled', 'disabled'));
+		setNumOfSelectedCheckboxes(-1);
 	}
+}
+
+function toggleDeleteSelectedBtn() {
+	if (numOfSelectedCheckboxes > 1) {
+		deleteSelectedBtn.classList.remove('no-display');
+	} else {
+		deleteSelectedBtn.classList.add('no-display');
+	}
+}
+
+function setNumOfSelectedCheckboxes(num) {
+	numOfSelectedCheckboxes += num;
 }
 
 function addUser(body) {
