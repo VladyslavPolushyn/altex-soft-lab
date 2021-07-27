@@ -1,6 +1,8 @@
 const body = document.getElementById('body');
 
 let usersData;
+let currentPage = 1;
+const numOfUsersPerPage = 10;
 let checkboxes;
 let numOfSelectedCheckboxes = 0;
 let deleteBtnArr;
@@ -23,6 +25,8 @@ const selectAllBtn = document.getElementById('select-all');
 const deleteSelectedBtn = document.getElementById('delete-selected-btn');
 const addBtn = document.getElementById('add-btn');
 const searchInputs = document.querySelectorAll('.search-input');
+const paginationContainer = document.getElementById('pagination');
+let paginationBtnArr;
 
 const dataFetch = async (method = 'GET', url, body) => {
 	try {
@@ -42,11 +46,28 @@ const dataFetch = async (method = 'GET', url, body) => {
 
 getUsers();
 
-function renderTable(data) {
-
+function renderTable(data, from = 0, to = numOfUsersPerPage, page = 1) {
 	tableBody.innerHTML = '';
+	pagination.innerHTML = '';
+	let requiredNumOfPages = Math.ceil(data.length / numOfUsersPerPage);
 
-	for (let value of data) {
+	for (let i = 0; i < requiredNumOfPages; i++) {
+		pagination.insertAdjacentHTML('beforeend', `
+			<li class="pagination-item ${i+1 === page ? 'active' : ''}" data-page=${i+1} data-from=${i * numOfUsersPerPage} data-to=${i * numOfUsersPerPage + numOfUsersPerPage}>${i+1}</li>
+		`);
+	}
+
+	paginationBtnArr = document.querySelectorAll('.pagination-item');
+	paginationBtnArr.forEach(elem => {
+		elem.addEventListener('click', e => {
+			from = e.target.dataset.from;
+			to = e.target.dataset.to;
+			currentPage = +e.target.dataset.page;
+			renderTable(data, from, to, currentPage);
+		});
+	});
+
+	for (let value of data.slice(from, to)) {
 		tableBody.insertAdjacentHTML('beforeend', `
 			<tr>
 				<td>
