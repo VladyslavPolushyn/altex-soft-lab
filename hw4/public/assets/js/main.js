@@ -37,7 +37,6 @@ const dataFetch = async (method = 'GET', url, body) => {
 			},
 			body: JSON.stringify(body),
 		});
-
 		return res.json();
 	} catch (error) {
 		return error.response;
