@@ -48,6 +48,9 @@ getUsers();
 function renderTable(data, from = 0, to = numOfUsersPerPage, page = 1) {
 	tableBody.innerHTML = '';
 	pagination.innerHTML = '';
+	numOfSelectedCheckboxes = 0;
+	toggleDeleteSelectedBtn();
+	
 	let requiredNumOfPages = Math.ceil(data.length / numOfUsersPerPage);
 
 	for (let i = 0; i < requiredNumOfPages; i++) {
