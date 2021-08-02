@@ -50,7 +50,7 @@ function renderTable(data, from = 0, to = numOfUsersPerPage, page = 1) {
 	pagination.innerHTML = '';
 	numOfSelectedCheckboxes = 0;
 	toggleDeleteSelectedBtn();
-	
+
 	let requiredNumOfPages = Math.ceil(data.length / numOfUsersPerPage);
 
 	for (let i = 0; i < requiredNumOfPages; i++) {
@@ -95,7 +95,7 @@ function renderTable(data, from = 0, to = numOfUsersPerPage, page = 1) {
 
 	checkboxes = document.querySelectorAll('.table-body .single-checkbox');
 	editBtnArr = document.querySelectorAll('.table-body .edit-btn');
-	deleteBtnArr = document.querySelectorAll('.delete-btn');
+	deleteBtnArr = document.querySelectorAll('.delete-btn:not(.delete-all-btn)');
 
 	checkboxes.forEach(elem => {
 		elem.addEventListener('change', () => {
@@ -104,11 +104,10 @@ function renderTable(data, from = 0, to = numOfUsersPerPage, page = 1) {
 		});
 	});
 
+	deleteSelectedBtn.addEventListener('click', handleDeleteSelected);
+
 	deleteBtnArr.forEach(elem => {
-		elem.addEventListener('click', () => {
-			const selectedUsers = [...checkboxes].filter(item => item.checked);
-			deleteUsers(selectedUsers);
-		});
+		elem.addEventListener('click', handleDelete);
 	});
 
 	editBtnArr.forEach(elem => {
@@ -157,9 +156,32 @@ function addUser(body) {
 	getUsers();
 }
 
-function deleteUsers(users) {
-	users.forEach(item => dataFetch('DELETE', `users/${item.id}`));
-	getUsers();
+function handleDeleteSelected() {
+	const selectedUsers = [...checkboxes].filter(item => item.checked);
+	const usersId = selectedUsers.map(item => item.id);
+	deleteUsers(usersId);
+}
+
+function handleDelete() {
+	deleteUsers([event.target.dataset.id]);
+}
+
+function deleteUsers(usersId) {
+
+	(async function(){
+		for await (let id of usersId) {
+			console.log(id);
+			await dataFetch('DELETE', `users/${id}`);
+		}
+		console.log('done');
+		getUsers();
+	})();
+
+	deleteBtnArr.forEach(elem => {
+		elem.removeEventListener('click', handleDelete);
+	});
+	deleteSelectedBtn.removeEventListener('click', handleDeleteSelected);
+
 }
 
 function editUser(id, body) {
@@ -175,7 +197,7 @@ function getUsers() {
 }
 
 function getUserById(id) {
-	return dataFetch('GET', `users/${id}`)
+	return dataFetch('GET', `users/${id}`);
 }
 
 function openModal() {
