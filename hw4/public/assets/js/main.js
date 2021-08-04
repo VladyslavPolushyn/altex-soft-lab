@@ -170,10 +170,8 @@ function deleteUsers(usersId) {
 
 	(async function(){
 		for await (let id of usersId) {
-			console.log(id);
 			await dataFetch('DELETE', `users/${id}`);
 		}
-		console.log('done');
 		getUsers();
 	})();
 
